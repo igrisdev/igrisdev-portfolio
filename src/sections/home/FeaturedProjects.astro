@@ -1,7 +1,158 @@
 ---
+import RowIcon from '@assets/icons/RowIcon.astro'
+import RefreshIcon from '@assets/icons/RefreshIcon.astro'
+import GitHubIcon from '@assets/icons/GitHubIcon.astro'
+import AstroIcon from '@assets/icons/AstroIcon.astro'
+
 import SectionLayout from '@components/general/SectionLayout.astro'
+
+interface FeaturedProject {
+  title: string
+  description: string
+  github: string
+  url: string
+  stack: string[]
+  logo: string
+}
+
+const featuredProjects: FeaturedProject[] = [
+  {
+    title: 'now-technology',
+    description: '✨ Description for my projects',
+    github: 'https://github.com/igrisdev',
+    url: '/',
+    stack: ['Turborepo', 'Remix'],
+    logo: 'https://raw.githubusercontent.com/pheralb/react-symbols/main/website/public/images/logo_svg.svg',
+  },
+  {
+    title: 'title',
+    description: '✨ Description for my projects',
+    github: 'https://github.com/igrisdev',
+    url: '/',
+    stack: ['Turborepo', 'Remix'],
+    logo: 'https://raw.githubusercontent.com/pheralb/react-symbols/main/website/public/images/logo_svg.svg',
+  },
+]
 ---
 
 <SectionLayout>
-  <span>Proyectos Destacadohs</span>
+  <span slot='title'>Proyectos Destacados</span>
+  <div slot='stuff'>
+    <button class='group btn btn-sm btn-ghost font-normal gap-1'>
+      Recargar
+      <RefreshIcon
+        width='18'
+        styles='transition-transform duration-200 group-hover:-rotate-45'
+      />
+    </button>
+    <a href='/' class='group btn btn-sm btn-ghost font-normal gap-1'>
+      Ver mas
+      <RowIcon
+        width='18'
+        styles='transition-transform duration-200 group-hover:-rotate-45'
+      />
+    </a>
+  </div>
+
+  <div class='grid md:grid-cols-2 gap-2'>
+    {
+      featuredProjects.map(
+        ({ title, description, github, url, stack, logo }) => (
+          <article class='relative border-[1px] rounded-md p-4 grid grid-rows-3 gap-3 overflow-hidden'>
+            <header class='flex justify-between items-center'>
+              <div class='flex items-center gap-3'>
+                <div class='size-6'>
+                  <img class='w-full h-full' src={logo} alt={title} />
+                </div>
+                <a
+                  href={url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  class='group flex gap-1 text-lg font-medium items-center hover:underline decoration-dotted underline-offset-4'
+                >
+                  {title}
+                  <RowIcon
+                    width='12'
+                    styles='-rotate-45 group-hover:scale-125 transition-transform duration-200'
+                  />
+                </a>
+              </div>
+              <div>
+                <a
+                  href={github}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  class='opacity-80 hover:opacity-100'
+                >
+                  <GitHubIcon width='18' />
+                </a>
+              </div>
+            </header>
+
+            <main class='flex items-center'>
+              <p>{description}</p>
+            </main>
+
+            <footer class='flex gap-3 items-center'>
+              <a href='/' target='_blank' rel='noopener noreferrer'>
+                <AstroIcon />
+              </a>
+              <div class='flex gap-1 flex-wrap cursor-context-menu'>
+                {stack.map(name => (
+                  <span class='bg-slate-100 px-2 py-1 rounded-md text-sm border-[1px]'>
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </footer>
+
+            <div class='circle-shadow' />
+          </article>
+        )
+      )
+    }
+  </div>
 </SectionLayout>
+
+<style>
+  .circle-shadow {
+    background: rgb(31, 31, 31);
+    background: radial-gradient(
+      circle,
+      rgba(70, 68, 68, 0.1) 0%,
+      rgba(70, 68, 68, 0.05) 20%,
+      rgba(70, 68, 68, 0) 60%
+    );
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+</style>
+
+<script>
+  const article = document.querySelectorAll(
+    'article'
+  ) as NodeListOf<HTMLElement>
+
+  article.forEach(el => {
+    el.addEventListener('mouseover', e => {
+      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
+      circleShadow.style.opacity = '1'
+    })
+
+    el.addEventListener('mouseout', e => {
+      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
+      circleShadow.style.opacity = '0'
+    })
+
+    el.addEventListener('mousemove', e => {
+      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
+      circleShadow.style.left = `${e.layerX - 250}px`
+      circleShadow.style.top = `${e.layerY - 250}px`
+    })
+  })
+</script>

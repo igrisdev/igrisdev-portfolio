@@ -1,10 +1,11 @@
-<section>
-  <div class='flex justify-between'>
-    <h2>
+<section class='grid gap-4'>
+  <header class='flex justify-between items-center'>
+    <h2 class='text-xl font-medium'>
       <slot name='title' />
     </h2>
+
     <slot name='stuff' />
-  </div>
+  </header>
 
   <slot />
 </section>
