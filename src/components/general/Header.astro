@@ -1,0 +1,52 @@
+---
+import img from '/public/img.png'
+
+import LinkedInIcon from '@assets/icons/LinkedInIcon.astro'
+import Container from './Container.astro'
+import GitHubIcon from '@assets/icons/GitHubIcon.astro'
+
+const socialLinks = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/johan-alvarez-pinta/',
+    icon: LinkedInIcon,
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/igrisdev',
+    icon: GitHubIcon,
+  },
+]
+---
+
+<Container
+  element='header'
+  className='class="container sticky top-0 mt-5 z-50 mb-1 flex w-full max-w-4xl items-center justify-between py-4 backdrop-blur-md'
+>
+  <section class='flex gap-3'>
+    <div class='btn btn-circle overflow-hidden'>
+      <img src={img.src} alt='Foto profesional' class='w-full h-full' />
+    </div>
+    <a
+      href='/'
+      class='text-md flex items-center space-x-2 font-medium tracking-tight opacity-80 transition-opacity duration-150 hover:opacity-100'
+      ><span>igrisdev</span></a
+    >
+  </section>
+
+  <section class='flex items-center gap-2'>
+    {
+      socialLinks.map(({ name, url, icon: IconComponent }) => (
+        <a
+          href={url}
+          title={name}
+          target='_blank'
+          rel='noopener noreferrer'
+          class='btn btn-square btn-sm btn-ghost'
+        >
+          <IconComponent width='18' />
+        </a>
+      ))
+    }
+  </section>
+</Container>

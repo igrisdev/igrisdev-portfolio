@@ -1,0 +1,16 @@
+---
+interface Props {
+  element?: string
+  className?: string
+}
+
+const { element = 'section', className = '' } = Astro.props
+
+const styles = `container mx-auto px-[32px] ${className}`
+
+const Tag = element
+---
+
+<Tag class:list={styles}>
+  <slot />
+</Tag>
