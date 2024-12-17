@@ -1,5 +1,6 @@
 ---
 import cv from '/public/CV_JOHAN_MANUEL_ALVAREZ_PINTA.pdf'
+import DownloadIcon from '@assets/icons/DownloadIcon.astro'
 ---
 
 <section class='mt-10 grid gap-4'>
@@ -13,5 +14,11 @@ import cv from '/public/CV_JOHAN_MANUEL_ALVAREZ_PINTA.pdf'
     MongoDB y Oracle SQL.
   </p>
 
-  <a href={cv} class='btn btn-sm w-14'>CV</a>
+  <a
+    href={cv}
+    target='_blank'
+    class='btn btn-sm w-max hover:btn-success hover:text-base-100'
+  >
+    <DownloadIcon width='18' /> CV
+  </a>
 </section>
