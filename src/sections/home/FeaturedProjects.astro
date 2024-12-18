@@ -1,6 +1,5 @@
 ---
 import RowIcon from '@assets/icons/RowIcon.astro'
-import RefreshIcon from '@assets/icons/RefreshIcon.astro'
 import GitHubIcon from '@assets/icons/GitHubIcon.astro'
 import AstroIcon from '@assets/icons/AstroIcon.astro'
 
@@ -14,6 +13,12 @@ interface FeaturedProject {
   stack: string[]
   logo: string
 }
+
+// const githubUrl =
+//   'https://api.github.com/users/igrisdev/repos?type=owner&sort=updated'
+
+// const res = await fetch(githubUrl)
+// const data = await res.json()
 
 const featuredProjects: FeaturedProject[] = [
   {
@@ -32,24 +37,28 @@ const featuredProjects: FeaturedProject[] = [
     stack: ['Turborepo', 'Remix'],
     logo: 'https://raw.githubusercontent.com/pheralb/react-symbols/main/website/public/images/logo_svg.svg',
   },
+  {
+    title: 'title',
+    description: '✨ Description for my projects',
+    github: 'https://github.com/igrisdev',
+    url: '/',
+    stack: ['Turborepo', 'Remix'],
+    logo: 'https://raw.githubusercontent.com/pheralb/react-symbols/main/website/public/images/logo_svg.svg',
+  },
 ]
 ---
 
 <SectionLayout>
-  <span slot='title'>Proyectos Destacados</span>
+  <span slot='title'>Proyectos</span>
   <div slot='stuff'>
-    <button class='group btn btn-sm btn-ghost font-normal gap-1'>
-      Recargar
-      <RefreshIcon
-        width='18'
-        styles='transition-transform duration-200 group-hover:-rotate-45'
-      />
-    </button>
-    <a href='/' class='group btn btn-sm btn-ghost font-normal gap-1'>
+    <a
+      href='/products'
+      class='group flex gap-1 text-sm opacity-80 items-center hover:opacity-100'
+    >
       Ver mas
       <RowIcon
-        width='18'
-        styles='transition-transform duration-200 group-hover:-rotate-45'
+        width='12'
+        styles='transition-transform duration-100 group-hover:scale-125'
       />
     </a>
   </div>
@@ -58,7 +67,7 @@ const featuredProjects: FeaturedProject[] = [
     {
       featuredProjects.map(
         ({ title, description, github, url, stack, logo }) => (
-          <article class='relative border-[1px] rounded-md p-4 grid grid-rows-3 gap-3 overflow-hidden'>
+          <article class='relative border-[1px] rounded-md p-4 grid md:grid-rows-3 gap-1 overflow-hidden'>
             <header class='flex justify-between items-center'>
               <div class='flex items-center gap-3'>
                 <div class='size-6'>
@@ -93,9 +102,9 @@ const featuredProjects: FeaturedProject[] = [
               <p>{description}</p>
             </main>
 
-            <footer class='flex gap-3 items-center'>
+            <footer class='hidden md:flex gap-3 items-center'>
               <a href='/' target='_blank' rel='noopener noreferrer'>
-                <AstroIcon />
+                <AstroIcon width='18' height='18' />
               </a>
               <div class='flex gap-1 flex-wrap cursor-context-menu'>
                 {stack.map(name => (
@@ -124,8 +133,8 @@ const featuredProjects: FeaturedProject[] = [
       rgba(70, 68, 68, 0) 60%
     );
     border-radius: 50%;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     position: absolute;
     z-index: -1;
     opacity: 0;
@@ -151,8 +160,8 @@ const featuredProjects: FeaturedProject[] = [
 
     el.addEventListener('mousemove', e => {
       const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
-      circleShadow.style.left = `${e.layerX - 250}px`
-      circleShadow.style.top = `${e.layerY - 250}px`
+      circleShadow.style.left = `${e.layerX - 300}px`
+      circleShadow.style.top = `${e.layerY - 300}px`
     })
   })
 </script>

@@ -1,0 +1,121 @@
+---
+import RowIcon from '@assets/icons/RowIcon.astro'
+import GitHubIcon from '@assets/icons/GitHubIcon.astro'
+import AstroIcon from '@assets/icons/AstroIcon.astro'
+
+import SectionLayout from '@components/general/SectionLayout.astro'
+
+interface Estudies {
+  course: string
+  institution: string
+  location: string
+  date_start: string
+  date_end: string
+  description: string
+}
+
+// const githubUrl =
+//   'https://api.github.com/users/igrisdev/repos?type=owner&sort=updated'
+
+// const res = await fetch(githubUrl)
+// const data = await res.json()
+
+const estudies: Estudies[] = [
+  {
+    course: 'Ingeniería Informática',
+    institution: 'Institución Universitaria Colegio Mayor Del Cauca',
+    location: 'Colombia - Popayán',
+    date_start: 'agosto 2021',
+    date_end: 'presente',
+    description: 'Estudiante de Octavo semestre',
+  },
+  {
+    course: 'Técnico en Desarrollo de Software ',
+    institution: 'Institución Educativa Técnico Industrial',
+    location: 'Colombia - Popayán',
+    date_start: 'febrero 2018',
+    date_end: 'diciembre 2020',
+    description: 'Graduado del técnico',
+  },
+]
+---
+
+<SectionLayout>
+  <span slot='title'>Estudios</span>
+  <div class='pl-4 border-l-2 border-base-300 grid gap-4'>
+    {
+      estudies.map(
+        ({
+          course,
+          institution,
+          location,
+          date_start,
+          date_end,
+          description,
+        }) => (
+          <article class='grid gap-4'>
+            <header class='relative'>
+              <span class='opacity-80 text-sm'>
+                {date_start} - {date_end}
+              </span>
+              <div class='size-3 bg-base-200 border-[1px] border-base-300 rounded-full absolute -left-[23px] top-[7px]' />
+            </header>
+
+            <main class='grid gap-4'>
+              <div>
+                <h3 class='text-xl font-semibold'>{course}</h3>
+                <span class='text-sm opacity-80'>
+                  {institution}, {location}
+                </span>
+              </div>
+              <p class='text-sm'>{description}</p>
+            </main>
+          </article>
+        )
+      )
+    }
+  </div>
+</SectionLayout>
+
+<style>
+  .circle-shadow {
+    background: rgb(31, 31, 31);
+    background: radial-gradient(
+      circle,
+      rgba(70, 68, 68, 0.1) 0%,
+      rgba(70, 68, 68, 0.05) 20%,
+      rgba(70, 68, 68, 0) 60%
+    );
+    border-radius: 50%;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+</style>
+
+<script>
+  const article = document.querySelectorAll(
+    'article'
+  ) as NodeListOf<HTMLElement>
+
+  article.forEach(el => {
+    el.addEventListener('mouseover', e => {
+      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
+      circleShadow.style.opacity = '1'
+    })
+
+    el.addEventListener('mouseout', e => {
+      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
+      circleShadow.style.opacity = '0'
+    })
+
+    el.addEventListener('mousemove', e => {
+      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
+      circleShadow.style.left = `${e.layerX - 300}px`
+      circleShadow.style.top = `${e.layerY - 300}px`
+    })
+  })
+</script>
