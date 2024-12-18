@@ -1,8 +1,4 @@
 ---
-import RowIcon from '@assets/icons/RowIcon.astro'
-import GitHubIcon from '@assets/icons/GitHubIcon.astro'
-import AstroIcon from '@assets/icons/AstroIcon.astro'
-
 import SectionLayout from '@components/general/SectionLayout.astro'
 
 interface Estudies {
@@ -13,12 +9,6 @@ interface Estudies {
   date_end: string
   description: string
 }
-
-// const githubUrl =
-//   'https://api.github.com/users/igrisdev/repos?type=owner&sort=updated'
-
-// const res = await fetch(githubUrl)
-// const data = await res.json()
 
 const estudies: Estudies[] = [
   {
@@ -76,46 +66,3 @@ const estudies: Estudies[] = [
     }
   </div>
 </SectionLayout>
-
-<style>
-  .circle-shadow {
-    background: rgb(31, 31, 31);
-    background: radial-gradient(
-      circle,
-      rgba(70, 68, 68, 0.1) 0%,
-      rgba(70, 68, 68, 0.05) 20%,
-      rgba(70, 68, 68, 0) 60%
-    );
-    border-radius: 50%;
-    width: 600px;
-    height: 600px;
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-</style>
-
-<script>
-  const article = document.querySelectorAll(
-    'article'
-  ) as NodeListOf<HTMLElement>
-
-  article.forEach(el => {
-    el.addEventListener('mouseover', e => {
-      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
-      circleShadow.style.opacity = '1'
-    })
-
-    el.addEventListener('mouseout', e => {
-      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
-      circleShadow.style.opacity = '0'
-    })
-
-    el.addEventListener('mousemove', e => {
-      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
-      circleShadow.style.left = `${e.layerX - 300}px`
-      circleShadow.style.top = `${e.layerY - 300}px`
-    })
-  })
-</script>

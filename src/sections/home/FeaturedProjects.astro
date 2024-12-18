@@ -75,7 +75,7 @@ const featuredProjects: FeaturedProject[] = [
           stack,
           logo,
         }) => (
-          <article class='relative border-[1px] rounded-md p-4 grid md:grid-rows-3 gap-1 overflow-hidden'>
+          <article class='article-featured-projects relative border-[1px] rounded-md p-4 grid md:grid-rows-3 gap-1 overflow-hidden'>
             <header class='flex justify-between items-center'>
               <div class='flex items-center gap-3'>
                 <div class='size-6'>
@@ -156,7 +156,7 @@ const featuredProjects: FeaturedProject[] = [
 
 <script>
   const article = document.querySelectorAll(
-    'article'
+    '.article-featured-projects'
   ) as NodeListOf<HTMLElement>
 
   article.forEach(el => {
