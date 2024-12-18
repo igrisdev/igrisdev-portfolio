@@ -7,6 +7,8 @@ import LinkedInIcon from '@assets/icons/LinkedInIcon.astro'
 import Container from './Container.astro'
 import GitHubIcon from '@assets/icons/GitHubIcon.astro'
 import DownloadIcon from '@assets/icons/DownloadIcon.astro'
+import SunIcon from '@assets/icons/SunIcon.astro'
+import MoonIcon from '@assets/icons/MoonIcon.astro'
 
 const socialLinks = [
   {
@@ -24,7 +26,7 @@ const socialLinks = [
 
 <Container
   element='header'
-  className='class="container sticky top-0 mt-5 z-50 mb-1 flex w-full max-w-4xl items-center justify-between py-4 backdrop-blur-md'
+  className='sticky top-0 z-50 mt-5 py-4 flex w-full items-center justify-between backdrop-blur-md'
 >
   <section class='flex gap-3'>
     <div class='btn btn-circle overflow-hidden'>
@@ -59,5 +61,65 @@ const socialLinks = [
         </a>
       ))
     }
+
+    <button class='group btn btn-square btn-sm btn-ghost'>
+      <MoonIcon
+        width='18'
+        styles='icon-dark rotate-0 transition-transform duration-300 group-hover:-rotate-[20deg]'
+      />
+      <SunIcon
+        width='18'
+        styles='icon-light rotate-0 transition-transform duration-300 group-hover:-rotate-[20deg]'
+      />
+    </button>
   </section>
 </Container>
+
+<script is:inline>
+  const btn = document.querySelector('button')
+  const theme = localStorage.getItem('theme')
+  const html = document.querySelector('html')
+
+  const iconLight = document.querySelector('.icon-light')
+  const iconDark = document.querySelector('.icon-dark')
+
+  const systemTheme =
+    window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+
+  const colorMode = systemTheme ? 'dark' : 'light'
+
+  function setTheme(theme) {
+    html.dataset.theme = theme
+
+    if (theme === 'dark') {
+      iconLight.classList.add('hidden')
+      iconDark.classList.remove('hidden')
+    } else {
+      iconLight.classList.remove('hidden')
+      iconDark.classList.add('hidden')
+    }
+  }
+
+  if (systemTheme && !theme) {
+    setTheme(colorMode)
+  } else {
+    if (theme === 'dark') {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+  }
+
+  btn.addEventListener('click', e => {
+    const theme = localStorage.getItem('theme')
+
+    if (theme === 'dark') {
+      localStorage.setItem('theme', 'light')
+      setTheme('light')
+    } else {
+      localStorage.setItem('theme', 'dark')
+      setTheme('dark')
+    }
+  })
+</script>
