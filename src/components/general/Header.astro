@@ -89,6 +89,10 @@ const socialLinks = [
 
   const colorMode = systemTheme ? 'dark' : 'light'
 
+  function setLocalStorageTheme(theme) {
+    localStorage.setItem('theme', theme)
+  }
+
   function setTheme(theme) {
     html.dataset.theme = theme
 
@@ -102,6 +106,7 @@ const socialLinks = [
   }
 
   if (systemTheme && !theme) {
+    setLocalStorageTheme(colorMode)
     setTheme(colorMode)
   } else {
     if (theme === 'dark') {
@@ -115,10 +120,10 @@ const socialLinks = [
     const theme = localStorage.getItem('theme')
 
     if (theme === 'dark') {
-      localStorage.setItem('theme', 'light')
+      setLocalStorageTheme('light')
       setTheme('light')
     } else {
-      localStorage.setItem('theme', 'dark')
+      setLocalStorageTheme('dark')
       setTheme('dark')
     }
   })
