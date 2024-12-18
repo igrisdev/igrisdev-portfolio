@@ -1,0 +1,30 @@
+---
+import type { Estudies } from '@types/Estudies.types'
+
+interface Props extends Estudies {}
+
+const { course, institution, location, date_start, date_end, description } =
+  Astro.props
+---
+
+<article class='grid gap-4'>
+  <header class='relative'>
+    <span class='opacity-80 text-sm'>
+      {date_start} - {date_end}
+    </span>
+    <div
+      class='size-3 bg-base-200 border-[1px] border-base-300 rounded-full absolute -left-[23px] top-[7px]'
+    >
+    </div>
+  </header>
+
+  <main class='grid gap-4'>
+    <div>
+      <h3 class='text-xl font-semibold'>{course}</h3>
+      <span class='text-sm opacity-80'>
+        {institution}, {location}
+      </span>
+    </div>
+    <p class='text-sm'>{description}</p>
+  </main>
+</article>

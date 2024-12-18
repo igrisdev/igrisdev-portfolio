@@ -1,14 +1,8 @@
 ---
 import SectionLayout from '@components/general/SectionLayout.astro'
+import CardEstudies from '@components/home/CardEstudies.astro'
 
-interface Estudies {
-  course: string
-  institution: string
-  location: string
-  date_start: string
-  date_end: string
-  description: string
-}
+import type { Estudies } from '@types/Estudies.types'
 
 const estudies: Estudies[] = [
   {
@@ -33,36 +27,6 @@ const estudies: Estudies[] = [
 <SectionLayout>
   <span slot='title'>Estudios</span>
   <div class='pl-4 border-l-2 border-base-300 grid gap-4'>
-    {
-      estudies.map(
-        ({
-          course,
-          institution,
-          location,
-          date_start,
-          date_end,
-          description,
-        }) => (
-          <article class='grid gap-4'>
-            <header class='relative'>
-              <span class='opacity-80 text-sm'>
-                {date_start} - {date_end}
-              </span>
-              <div class='size-3 bg-base-200 border-[1px] border-base-300 rounded-full absolute -left-[23px] top-[7px]' />
-            </header>
-
-            <main class='grid gap-4'>
-              <div>
-                <h3 class='text-xl font-semibold'>{course}</h3>
-                <span class='text-sm opacity-80'>
-                  {institution}, {location}
-                </span>
-              </div>
-              <p class='text-sm'>{description}</p>
-            </main>
-          </article>
-        )
-      )
-    }
+    {estudies.map(estudie => <CardEstudies {...estudie} />)}
   </div>
 </SectionLayout>
