@@ -1,8 +1,10 @@
 ---
+import type { Articles } from 'src/types/Articles.types'
+
 import SectionLayout from '@components/general/SectionLayout.astro'
 import CardArticle from '@components/home/CardArticle.astro'
 
-const articles = [
+const articles: Articles[] = [
   {
     text: 'Proyecto de una convocatoria interna semilleros',
     title:

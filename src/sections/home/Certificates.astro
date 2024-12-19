@@ -1,0 +1,50 @@
+---
+import platzi from '/public/diploma-document-object-model.pdf'
+
+import CalendarIcon from '@assets/icons/CalendarIcon.astro'
+import DownloadIcon from '@assets/icons/DownloadIcon.astro'
+
+import Tags from '@components/general/Tags.astro'
+import SectionLayout from '@components/general/SectionLayout.astro'
+---
+
+<SectionLayout
+  styles='animate-fade-up animate-once animate-ease-out animate-delay-700'
+>
+  <span slot='title'>Certificado</span>
+  <div class='grid gap-4'>
+    <article class='pl-4 border-l-2 border-base-300 grid gap-3'>
+      <header>
+        <h3 class='uppercase text-md font-semibold'>
+          JavaScript: Manipulación del DOM
+        </h3>
+      </header>
+
+      <main class='grid gap-2 text-sm'>
+        <div class='flex gap-2'>
+          <h4>COO:</h4>
+          <p>Christian VanDer Henst S</p>
+        </div>
+        <div class='flex gap-2'>
+          <h4>CEO:</h4>
+          <p>John Freddy Vega</p>
+        </div>
+      </main>
+
+      <footer class='flex gap-1 items-center flex-wrap'>
+        <Tags> Platzi </Tags>
+        <Tags>
+          <CalendarIcon height='16' />
+          17 de noviembre de 2024
+        </Tags>
+        <a
+          href={platzi}
+          target='_blank'
+          class='btn btn-sm w-max bg-transparent border-none shadow-none hover:btn-success hover:text-base-100'
+        >
+          <DownloadIcon width='18' /> CV
+        </a>
+      </footer>
+    </article>
+  </div>
+</SectionLayout>
