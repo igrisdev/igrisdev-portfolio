@@ -12,6 +12,7 @@
       "@assets/*": ["src/assets/*"],
       "@services/*": ["src/services/*"],
       "@types/*": ["src/types/*"],
+      "@stores/*": ["src/stores/*"],
       "@layouts/*": ["src/layouts/*"]
     }
   }

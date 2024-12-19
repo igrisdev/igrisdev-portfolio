@@ -4,8 +4,9 @@ import type { GithubResultAPI } from '@types/GithubResultAPI'
 import ButtonLink from '@components/general/ButtonLink.astro'
 import GitForkIcon from '@assets/icons/GitForkIcon.astro'
 import CardRepository from '@components/products/CardRepository.astro'
+import { repositories as repos } from '@stores/store'
 
-const { repositories } = Astro.props as { repositories: GithubResultAPI[] }
+const repositories = repos.get()
 ---
 
 <section

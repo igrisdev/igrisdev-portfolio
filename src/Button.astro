@@ -1,0 +1,13 @@
+<button id='openDialog'>Open</button>
+
+<script>
+  import { isOpen } from '@stores/store.ts'
+
+  // Set the store to true when the button is clicked
+  function openDialog() {
+    isOpen.set(true)
+  }
+
+  // Add an event listener to the button
+  document.getElementById('openDialog').addEventListener('click', openDialog)
+</script>
