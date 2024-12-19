@@ -21,6 +21,15 @@ export default {
   },
   plugins: [daisyui, tailwindcssAnimated],
   daisyui: {
-    themes: ['light', 'dark'],
+    themes: [
+      'light',
+      {
+        dark: {
+          'base-100': '#000',
+          'base-200': '#1e1e1e',
+          'base-300': '#2e2e2e',
+        },
+      },
+    ],
   },
 }
