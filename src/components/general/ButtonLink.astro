@@ -3,14 +3,17 @@ import RowIcon from '@assets/icons/RowIcon.astro'
 
 interface Props {
   url: string
+  target?: boolean
   text: string
 }
 
-const { url = '/', text = 'Ver mas' } = Astro.props
+const { url = '/', target = false, text = 'Ver mas' } = Astro.props
 ---
 
 <a
   href={url}
+  target={target ? '_blank' : '_self'}
+  rel='noopener noreferrer'
   class='group flex gap-1 text-sm opacity-80 items-center hover:opacity-100'
 >
   {text}

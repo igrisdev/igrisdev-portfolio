@@ -24,7 +24,7 @@ const { text, title, description, date, url } = Astro.props
       {description}
     </p>
   </main>
-  <footer class='flex gap-2 items-center justify-between flex-wrap'>
+  <footer class='flex gap-4 items-center justify-between flex-wrap'>
     <div>
       <Tags>
         <CalendarIcon height='16' />
@@ -32,6 +32,6 @@ const { text, title, description, date, url } = Astro.props
       </Tags>
     </div>
 
-    {url && <ButtonLink url={url} text='Ir a la publicación' />}
+    {url && <ButtonLink url={url} target={true} text='Ir a la publicación' />}
   </footer>
 </article>
