@@ -8,12 +8,6 @@ import CardFeaturedProjects from '@components/home/CardFeaturedProjects.astro'
 
 import type { FeaturedProject } from 'src/types/featuredProjects.types'
 
-// const githubUrl =
-//   'https://api.github.com/users/igrisdev/repos?type=owner&sort=updated'
-
-// const res = await fetch(githubUrl)
-// const data = await res.json()
-
 const featuredProjects: FeaturedProject[] = [
   {
     title: 'now-technology',
@@ -38,7 +32,9 @@ const featuredProjects: FeaturedProject[] = [
 ]
 ---
 
-<SectionLayout>
+<SectionLayout
+  styles='animate-fade-up animate-once animate-ease-out animate-delay-200'
+>
   <span slot='title'>Proyectos</span>
   <div slot='stuff'>
     <a

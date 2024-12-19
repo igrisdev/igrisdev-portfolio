@@ -24,7 +24,9 @@ const estudies: Estudies[] = [
 ]
 ---
 
-<SectionLayout>
+<SectionLayout
+  styles='animate-fade-up animate-once animate-ease-out animate-delay-500'
+>
   <span slot='title'>Estudios</span>
   <div class='pl-4 border-l-2 border-base-300 grid gap-4'>
     {estudies.map(estudie => <CardEstudies {...estudie} />)}
