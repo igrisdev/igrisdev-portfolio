@@ -1,12 +1,12 @@
 ---
-import RowIcon from '@assets/icons/RowIcon.astro'
+import type { FeaturedProject } from 'src/types/featuredProjects.types'
+
 import AstroIcon from '@assets/icons/AstroIcon.astro'
 import ReactIcon from '@assets/icons/ReactIcon.astro'
 
 import SectionLayout from '@components/general/SectionLayout.astro'
-import CardFeaturedProjects from '@components/home/CardFeaturedProjects.astro'
-
-import type { FeaturedProject } from 'src/types/featuredProjects.types'
+import ButtonLink from '@components/general/ButtonLink.astro'
+import CardFeaturedProject from '@components/home/CardFeaturedProject.astro'
 
 const featuredProjects: FeaturedProject[] = [
   {
@@ -16,7 +16,7 @@ const featuredProjects: FeaturedProject[] = [
     url: 'https://newtechnology.vercel.app/',
     icon_technology: AstroIcon,
     url_technology: 'https://astro.build/',
-    stack: ['React', 'TailwindCSS'],
+    tags: ['React', 'TailwindCSS'],
     logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
   },
   {
@@ -26,7 +26,7 @@ const featuredProjects: FeaturedProject[] = [
     url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
     icon_technology: ReactIcon,
     url_technology: 'https://es.react.dev/',
-    stack: ['TailwindCSS'],
+    tags: ['TailwindCSS'],
     logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
   },
 ]
@@ -37,19 +37,10 @@ const featuredProjects: FeaturedProject[] = [
 >
   <span slot='title'>Proyectos</span>
   <div slot='stuff'>
-    <a
-      href='/products'
-      class='group flex gap-1 text-sm opacity-80 items-center hover:opacity-100'
-    >
-      Ver mas
-      <RowIcon
-        width='12'
-        styles='transition-transform duration-100 group-hover:scale-125'
-      />
-    </a>
+    <ButtonLink url='/products' text='Ver mas' />
   </div>
 
   <div class='grid md:grid-cols-2 gap-2'>
-    {featuredProjects.map(projects => <CardFeaturedProjects {...projects} />)}
+    {featuredProjects.map(project => <CardFeaturedProject {...project} />)}
   </div>
 </SectionLayout>
