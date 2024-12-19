@@ -1,0 +1,21 @@
+---
+import RowIcon from '@assets/icons/RowIcon.astro'
+
+interface Props {
+  url: string
+  text: string
+}
+
+const { url = '/', text = 'Ver mas' } = Astro.props
+---
+
+<a
+  href={url}
+  class='group flex gap-1 text-sm opacity-80 items-center hover:opacity-100'
+>
+  {text}
+  <RowIcon
+    width='12'
+    styles='transition-transform duration-100 group-hover:scale-125'
+  />
+</a>

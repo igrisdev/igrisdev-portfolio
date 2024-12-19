@@ -1,0 +1,37 @@
+---
+import type { Articles } from '@types/Articles.types'
+
+import CalendarIcon from '@assets/icons/CalendarIcon.astro'
+import ButtonLink from '@components/general/ButtonLink.astro'
+import Tags from '@components/general/Tags.astro'
+
+interface Props extends Articles {}
+
+const { text, title, description, date, url } = Astro.props
+---
+
+<article class='grid p-4 border-[1px] border-base-300 rounded-md gap-3'>
+  <header>
+    <h3 class='uppercase text-md'>
+      {title}
+      <strong>
+        "{title}"
+      </strong>
+    </h3>
+  </header>
+  <main>
+    <p class='text-sm text-pretty'>
+      {description}
+    </p>
+  </main>
+  <footer class='flex gap-2 items-center justify-between'>
+    <div>
+      <Tags>
+        <CalendarIcon width='18' />
+        {date}
+      </Tags>
+    </div>
+
+    {url && <ButtonLink url={url} text='Ir a la publicación' />}
+  </footer>
+</article>

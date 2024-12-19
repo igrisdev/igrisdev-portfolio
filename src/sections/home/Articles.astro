@@ -1,0 +1,33 @@
+---
+import SectionLayout from '@components/general/SectionLayout.astro'
+import CardArticle from '@components/home/CardArticle.astro'
+
+const articles = [
+  {
+    text: 'Proyecto de una convocatoria interna semilleros',
+    title:
+      'Sistema de Reporte de Fallas en las Salas de Cómputo de una Institución de Educación Superior”',
+    description:
+      'Este artículo se agregó al libro titulado “Advances in Computing, 17th Colombian Conference on Computing, CCC 2023, Medellin, Colombia, August 10–11, 2023, Revised Selected Papers”',
+    date: 'abril 2024 – 27 de mayo de 2024',
+    url: 'https://www.springerprofessional.de/computer-room-failure-reporting-system-for-a-higher-education-in/26298620',
+  },
+  {
+    text: 'PROYECTO DE UNA CONVOCATORIA INTERNA SEMILLEROS',
+    title:
+      'DISEÑO DE UN REPOSITORIO DE RECURSOS EDUCATIVOS SOBRE ESTADÍSTICA PARA INGENIERÍA INFORMÁTICA CENTRADO EN EL USUARIO: USABILIDAD Y ARQUITECTURA DE LA INFORMACIÓN',
+    description:
+      'Publicación en curso en la Universidad Nacional de Colombia en la Revista Industria y Organizaciones.',
+    date: '26 de febrero de 2024 – hasta la fecha',
+  },
+]
+---
+
+<SectionLayout
+  styles='animate-fade-up animate-once animate-ease-out animate-delay-700'
+>
+  <span slot='title'>Artículos</span>
+  <div class='grid gap-4'>
+    {articles.map(article => <CardArticle {...article} />)}
+  </div>
+</SectionLayout>

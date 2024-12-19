@@ -1,0 +1,34 @@
+---
+import SectionLayout from '@components/general/SectionLayout.astro'
+import CardStudy from '@components/home/CardStudy.astro'
+
+import type { Studies } from '@types/Studies.types'
+
+const estudies: Studies[] = [
+  {
+    course: 'Ingeniería Informática',
+    institution: 'Institución Universitaria Colegio Mayor Del Cauca',
+    location: 'Colombia - Popayán',
+    date_start: 'agosto 2021',
+    date_end: 'presente',
+    description: 'Estudiante de Octavo semestre',
+  },
+  {
+    course: 'Técnico en Desarrollo de Software ',
+    institution: 'Institución Educativa Técnico Industrial',
+    location: 'Colombia - Popayán',
+    date_start: 'febrero 2018',
+    date_end: 'diciembre 2020',
+    description: 'Graduado del técnico',
+  },
+]
+---
+
+<SectionLayout
+  styles='animate-fade-up animate-once animate-ease-out animate-delay-500'
+>
+  <span slot='title'>Estudios</span>
+  <div class='pl-4 border-l-2 border-base-300 grid gap-4'>
+    {estudies.map(study => <CardStudy {...study} />)}
+  </div>
+</SectionLayout>
