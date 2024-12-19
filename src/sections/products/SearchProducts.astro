@@ -1,0 +1,21 @@
+---
+import SearchIcon from '@assets/icons/SearchIcon.astro'
+---
+
+<form class='mt-2'>
+  <label class='input input-bordered flex items-center gap-2'>
+    <input
+      type='text'
+      class='grow'
+      placeholder='Buscar repositorio'
+      name='search'
+    />
+    <SearchIcon width='18' height='18' />
+  </label>
+</form>
+
+<script>
+  const targetForm = document.querySelector('form') as HTMLFormElement
+
+  const form = new FormData(targetForm)
+</script>
