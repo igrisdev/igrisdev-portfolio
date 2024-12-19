@@ -1,0 +1,35 @@
+---
+import type { GithubResultAPI } from '@types/GithubResultAPI.types'
+
+import ButtonLink from '@components/general/ButtonLink.astro'
+import GitForkIcon from '@assets/icons/GitForkIcon.astro'
+import CardRepository from '@components/products/CardRepository.astro'
+
+const { repositories } = Astro.props as { repositories: GithubResultAPI[] }
+---
+
+<section
+  class='grid gap-4 animate-fade-up animate-once animate-ease-out animate-delay-200'
+>
+  <div class='flex justify-between items-center flex-wrap'>
+    <div class='flex gap-2 items-center text-sm'>
+      <GitForkIcon width='14' height='14' />
+      <span>2</span>
+      <h2>Repositorios</h2>
+    </div>
+
+    <ButtonLink
+      url='https://github.com/igrisdev?tab=repositories'
+      target={true}
+      text='Ver en GitHub'
+    />
+  </div>
+
+  <div class='grid gap-4'>
+    {
+      repositories.map((repository: GithubResultAPI) => (
+        <CardRepository {...repository} />
+      ))
+    }
+  </div>
+</section>

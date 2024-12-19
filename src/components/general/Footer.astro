@@ -1,10 +1,14 @@
 ---
 import Container from '@components/general/Container.astro'
+
+const url = Astro.url.pathname
+
+const isHome = url === '/'
 ---
 
 <Container
   element='footer'
-  className='text-sm flex w-full items-center justify-center animate-fade-up animate-once animate-ease-out mb-6'
+  className=`text-sm flex w-full items-center justify-center animate-fade-up animate-once animate-ease-out mb-6 ${isHome ? 'animate-delay-1000' : 'animate-delay-300'}`
 >
   <p>💚 Johan Alvarez - 2024 💚</p>
 </Container>

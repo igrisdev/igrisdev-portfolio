@@ -2,6 +2,10 @@
 import Container from '@components/general/Container.astro'
 import Header from '../components/general/Header.astro'
 import Footer from '@components/general/Footer.astro'
+
+const url = Astro.url.pathname
+
+const isHome = url === '/'
 ---
 
 <!doctype html>
@@ -16,7 +20,7 @@ import Footer from '@components/general/Footer.astro'
   <body>
     <Header />
 
-    <Container className='grid gap-12 pb-[32px]'>
+    <Container className=`grid pb-[32px] ${isHome ? 'gap-12' : 'gap-4'}` }>
       <slot />
     </Container>
 
