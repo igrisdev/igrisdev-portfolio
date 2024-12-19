@@ -7,15 +7,13 @@ const { name, description, topics, html_url, stargazers_count, icon } =
   Astro.props
 ---
 
-<article
-  class='article-featured-projects relative border-[1px] border-base-300 rounded-md p-3 grid md:grid-rows-3 overflow-hidden'
->
+<article class='border-[1px] border-base-300 rounded-md p-3 grid gap-1'>
   <header class='flex justify-between items-center'>
     <a
       href={html_url}
       target='_blank'
       rel='noopener noreferrer'
-      class='group flex gap-1 text-lg font-medium items-center hover:underline decoration-dotted underline-offset-4'
+      class='group flex gap-1 font-medium items-center hover:underline decoration-dotted underline-offset-4'
     >
       <span class='lowercase'>{name}</span>
       <RowIcon
@@ -36,7 +34,7 @@ const { name, description, topics, html_url, stargazers_count, icon } =
     </p>
   </main>
 
-  <footer class='flex gap-1 flex-wrap cursor-context-menu mt-1'>
+  <footer class='flex gap-1 flex-wrap cursor-context-menu'>
     {icon && <Tags>{icon}</Tags>}
     {topics.map((topic: string) => <Tags>{topic}</Tags>)}
   </footer>
