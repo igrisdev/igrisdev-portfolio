@@ -12,7 +12,7 @@ export const getAllRepositories = async () => {
   }
 
   const projects: GithubResultAPI[] = data.map((repo: GithubResultAPI) => ({
-    name: repo.name,
+    name: repo.name.toLocaleLowerCase(),
     description: repo.description,
     topics: repo.topics.slice(0, 5),
     html_url: repo.html_url,

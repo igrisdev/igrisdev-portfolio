@@ -13,6 +13,7 @@ export const ContainerRepositories = ({
   repos: GithubResultAPI[]
 }) => {
   const repositories = useStore(repositoriesStore)
+
   const addRepository = ({ repos }: { repos: GithubResultAPI[] }) => {
     cacheRepositoriesStore.set(repos)
     repositoriesStore.set(repos)
@@ -24,8 +25,8 @@ export const ContainerRepositories = ({
 
   return (
     <div className='grid gap-4'>
-      {repositories?.map((repository: GithubResultAPI) => (
-        <CardRepository key={repository.html_url} {...repository} />
+      {repositories.map((repository: GithubResultAPI) => (
+        <CardRepository key={repository.name} {...repository} />
       ))}
     </div>
   )

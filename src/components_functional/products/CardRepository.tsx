@@ -48,7 +48,7 @@ export const CardRepository = ({
       <footer className='flex gap-1 flex-wrap cursor-context-menu'>
         {icon && <Tags>{icon}</Tags>}
         {topics?.map((topic: string) => (
-          <Tags>{topic}</Tags>
+          <Tags key={topic}>{topic}</Tags>
         ))}
       </footer>
     </article>
