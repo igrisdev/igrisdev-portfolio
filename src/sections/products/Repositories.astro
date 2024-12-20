@@ -1,8 +1,6 @@
 ---
-import ButtonLink from '@components/general/ButtonLink.astro'
-import GitForkIcon from '@assets/icons/GitForkIcon.astro'
-
 import { ContainerRepositories } from '@components_functional/products/ContainerRepositories'
+import { InfoRepositories } from '@components_functional/products/InfoRepositories'
 
 import { getAllRepositories } from '@services/getAllRepositories'
 
@@ -10,21 +8,8 @@ const { repos } = await getAllRepositories()
 ---
 
 <section
-  class='grid gap-4 animate-fade-up animate-once animate-ease-out animate-delay-200'
+  class='min-h-[73vh] flex flex-col gap-4 animate-fade-up animate-once animate-ease-out animate-delay-200'
 >
-  <div class='flex justify-between items-center flex-wrap'>
-    <div class='flex gap-2 items-center text-sm'>
-      <GitForkIcon width='14' height='14' />
-      <span>4</span>
-      <h2>Repositorios</h2>
-    </div>
-
-    <ButtonLink
-      url='https://github.com/igrisdev?tab=repositories'
-      target={true}
-      text='Ver en GitHub'
-    />
-  </div>
-
+  <InfoRepositories client:visible />
   <ContainerRepositories client:visible repos={repos} />
 </section>
