@@ -4,5 +4,5 @@ import { atom } from 'nanostores';
 
 export const isOpen = atom(false);
 
-export const cacheRepositories = atom<GithubResultAPI[]>([]);
-export const repositories = atom<GithubResultAPI[]>([]);
+export const cacheRepositoriesStore = atom<GithubResultAPI[]>([]);
+export const repositoriesStore = atom<GithubResultAPI[]>([]);

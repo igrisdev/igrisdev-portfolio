@@ -1,12 +1,12 @@
 ---
-import type { GithubResultAPI } from '@types/GithubResultAPI'
-
 import ButtonLink from '@components/general/ButtonLink.astro'
 import GitForkIcon from '@assets/icons/GitForkIcon.astro'
-import CardRepository from '@components/products/CardRepository.astro'
-import { repositories as repos } from '@stores/store'
 
-const repositories = repos.get()
+import { ContainerRepositories } from '@components_functional/products/ContainerRepositories'
+
+import { getAllRepositories } from '@services/getAllRepositories'
+
+const { repos } = await getAllRepositories()
 ---
 
 <section
@@ -26,11 +26,5 @@ const repositories = repos.get()
     />
   </div>
 
-  <div class='grid gap-4'>
-    {
-      repositories.map((repository: GithubResultAPI) => (
-        <CardRepository {...repository} />
-      ))
-    }
-  </div>
+  <ContainerRepositories client:visible repos={repos} />
 </section>
