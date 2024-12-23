@@ -2,7 +2,7 @@ import type { GithubResultAPI } from "@types/GithubResultAPI"
 
 export const getAllRepositories = async () => {
   const githubUrl =
-    'https://api.github.com/users/igrisdev/repos?type=owner&sort=updated&per_page=4'
+    'https://api.github.com/users/igrisdev/repos?type=owner&sort=updated'
 
   const res = await fetch(githubUrl)
   const data = await res.json()
@@ -18,7 +18,8 @@ export const getAllRepositories = async () => {
     html_url: repo.html_url,
     icon: repo.language,
     stargazers_count: repo.stargazers_count,
-  }))
+  })).filter(({stargazers_count } : GithubResultAPI) => stargazers_count > 0)
+
 
   return {
     repos: projects,
