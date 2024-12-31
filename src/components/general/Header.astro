@@ -29,15 +29,17 @@ const socialLinks = [
   className='sticky top-0 z-50 mt-5 py-4 flex w-full items-center justify-between backdrop-blur-md'
 >
   <section class='flex gap-3'>
-    <div class='avatar'>
-      <div class='w-12 rounded-full'>
-        <img src={img.src} />
-      </div>
-    </div>
     <a
       href='/'
       class='text-md flex items-center space-x-2 font-medium tracking-tight opacity-80 transition-opacity duration-150 hover:opacity-100'
-      ><span>igrisdev</span></a
+    >
+      <div class='avatar'>
+        <div class='w-12 rounded-full'>
+          <img src={img.src} />
+        </div>
+      </div>
+
+      <span>igrisdev</span></a
     >
   </section>
 
