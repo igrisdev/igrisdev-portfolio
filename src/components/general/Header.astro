@@ -14,13 +14,13 @@ const socialLinks = [
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/johan-alvarez-pinta/',
-    icon: LinkedInIcon,
+    icon: LinkedInIcon
   },
   {
     name: 'GitHub',
     url: 'https://github.com/igrisdev',
-    icon: GitHubIcon,
-  },
+    icon: GitHubIcon
+  }
 ]
 ---
 
@@ -39,7 +39,7 @@ const socialLinks = [
         </div>
       </div>
 
-      <span>igrisdev</span></a
+      <span>Johan Alvarez</span></a
     >
   </section>
 
@@ -120,7 +120,7 @@ const socialLinks = [
     }
   }
 
-  btn.addEventListener('click', e => {
+  btn.addEventListener('click', (e) => {
     const theme = localStorage.getItem('theme')
 
     if (theme === 'dark') {
