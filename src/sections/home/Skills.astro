@@ -1,5 +1,24 @@
 ---
 import SectionLayout from '@components/general/SectionLayout.astro'
+import CardSkill from '@components/home/CardSkill.astro'
+
+import Html from '@assets/icons/html.svg'
+import Css from '@assets/icons/css.svg'
+import TailwindCSS from '@assets/icons/tailwindcss.svg'
+import JavaScript from '@assets/icons/javascript.svg'
+import TypeScript from '@assets/icons/typescript.svg'
+import AstroIcon from '@assets/icons/astro.svg'
+import React from '@assets/icons/react.svg'
+import NextJS from '@assets/icons/nextjs.svg'
+import Angular from '@assets/icons/angular.svg'
+
+import NodeJS from '@assets/icons/nodejs.svg'
+import Express from '@assets/icons/express.svg'
+import MongoDB from '@assets/icons/mongodb.svg'
+import PostgreSQL from '@assets/icons/postgresql.svg'
+import MySQL from '@assets/icons/mysql.svg'
+import OracleSQL from '@assets/icons/oracledb.svg'
+import Strapi from '@assets/icons/strapi.svg'
 
 interface Skills {
   title: string
@@ -9,7 +28,7 @@ interface Skills {
 interface Skill {
   name: string
   level: number
-  icon: string
+  icon: string | any
   url: string
 }
 
@@ -20,55 +39,55 @@ const SKILLS: Skills[] = [
       {
         name: 'HTML',
         level: 5,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/html5.svg',
+        icon: Html,
         url: 'https://developer.mozilla.org/es/docs/Web/HTML',
       },
       {
         name: 'CSS',
         level: 4,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/css3.svg',
+        icon: Css,
         url: 'https://developer.mozilla.org/es/docs/Web/CSS',
       },
       {
         name: 'TailwindCSS',
         level: 5,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/tailwindcss.svg',
+        icon: TailwindCSS,
         url: 'https://tailwindcss.com/',
       },
       {
         name: 'JavaScript',
         level: 4,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/javascript.svg',
+        icon: JavaScript,
         url: 'https://developer.mozilla.org/es/docs/Web/JavaScript',
       },
       {
         name: 'TypeScript',
         level: 3,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/typescript.svg',
+        icon: TypeScript,
         url: 'https://www.typescriptlang.org/',
       },
       {
         name: 'Astro',
         level: 4,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/astro.svg',
+        icon: AstroIcon,
         url: 'https://astro.build/',
       },
       {
         name: 'React',
         level: 3,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/react.svg',
+        icon: React,
         url: 'https://es.reactjs.org/',
       },
       {
         name: 'Next.js',
         level: 2,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/nextjs.svg',
+        icon: NextJS,
         url: 'https://nextjs.org/',
       },
       {
         name: 'Angular',
         level: 2,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/angularjs.svg',
+        icon: Angular,
         url: 'https://angular.io/',
       },
     ],
@@ -79,43 +98,43 @@ const SKILLS: Skills[] = [
       {
         name: 'Node.js',
         level: 3,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/nodejs.svg',
+        icon: NodeJS,
         url: 'https://nodejs.org/es/',
       },
       {
         name: 'Express.js',
         level: 3,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/express.svg',
+        icon: Express,
         url: 'https://expressjs.com/',
       },
       {
         name: 'MongoDB',
         level: 4,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/mongodb.svg',
+        icon: MongoDB,
         url: 'https://www.mongodb.com/',
       },
       {
         name: 'PostgreSQL',
         level: 3,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/postgresql.svg',
+        icon: PostgreSQL,
         url: 'https://www.postgresql.org/',
       },
       {
         name: 'MySQL',
         level: 3,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/mysql.svg',
+        icon: MySQL,
         url: 'https://www.mysql.com/',
       },
       {
         name: 'OracleSQL',
         level: 3,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/oracle.svg',
+        icon: OracleSQL,
         url: 'https://www.oracle.com/es/',
       },
       {
         name: 'Strapi 5',
         level: 3,
-        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/strapi.svg',
+        icon: Strapi,
         url: 'https://strapi.io/',
       },
     ],
@@ -135,28 +154,7 @@ const SKILLS: Skills[] = [
           <h2 class='text-lg font-base mb-2'>{title}</h2>
           <div class='grid grid-cols-4 gap-2'>
             {technologies.map(technology => (
-              // <CardSkill {...technology} />
-              <a
-                href='http://'
-                target='_blank'
-                rel='noopener noreferrer'
-                class='flex flex-col items-center gap-2 py-4 border-[1px] border-base-300'
-              >
-                <div class='flex items-center gap-2'>
-                  <div class='size-6 overflow-hidden'>
-                    <img
-                      src={technology.icon}
-                      alt={technology.name}
-                      class='w-full h-full'
-                    />
-                  </div>
-                  <p class='text-xl font-medium'>{technology.name}</p>
-                </div>
-
-                <div>
-                  <p class='text-xs font-medium'>{technology.level}</p>
-                </div>
-              </a>
+              <CardSkill {...technology} />
             ))}
           </div>
         </section>

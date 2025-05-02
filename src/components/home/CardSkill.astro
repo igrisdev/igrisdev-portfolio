@@ -1,0 +1,23 @@
+---
+import Star from '@assets/icons/star.svg'
+
+const { name, level, icon: Icon, url } = Astro.props
+
+const newArray = Array.from({ length: level }, () => '')
+---
+
+<a
+  href={url}
+  target='_blank'
+  rel='noopener noreferrer'
+  class='flex flex-col items-center gap-2 py-4 border-[1px] border-base-300'
+>
+  <div class='flex items-center gap-2'>
+    <Icon class='size-6' />
+    <p class='text-xl font-medium'>{name}</p>
+  </div>
+
+  <div class='flex items-center gap-2 flex-wrap'>
+    {newArray.map(item => <Star class='size-3' />)}
+  </div>
+</a>
