@@ -1,0 +1,166 @@
+---
+import SectionLayout from '@components/general/SectionLayout.astro'
+
+interface Skills {
+  title: string
+  technologies: Skill[]
+}
+
+interface Skill {
+  name: string
+  level: number
+  icon: string
+  url: string
+}
+
+const SKILLS: Skills[] = [
+  {
+    title: 'Frontend',
+    technologies: [
+      {
+        name: 'HTML',
+        level: 5,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/html5.svg',
+        url: 'https://developer.mozilla.org/es/docs/Web/HTML',
+      },
+      {
+        name: 'CSS',
+        level: 4,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/css3.svg',
+        url: 'https://developer.mozilla.org/es/docs/Web/CSS',
+      },
+      {
+        name: 'TailwindCSS',
+        level: 5,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/tailwindcss.svg',
+        url: 'https://tailwindcss.com/',
+      },
+      {
+        name: 'JavaScript',
+        level: 4,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/javascript.svg',
+        url: 'https://developer.mozilla.org/es/docs/Web/JavaScript',
+      },
+      {
+        name: 'TypeScript',
+        level: 3,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/typescript.svg',
+        url: 'https://www.typescriptlang.org/',
+      },
+      {
+        name: 'Astro',
+        level: 4,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/astro.svg',
+        url: 'https://astro.build/',
+      },
+      {
+        name: 'React',
+        level: 3,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/react.svg',
+        url: 'https://es.reactjs.org/',
+      },
+      {
+        name: 'Next.js',
+        level: 2,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/nextjs.svg',
+        url: 'https://nextjs.org/',
+      },
+      {
+        name: 'Angular',
+        level: 2,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/angularjs.svg',
+        url: 'https://angular.io/',
+      },
+    ],
+  },
+  {
+    title: 'Backend',
+    technologies: [
+      {
+        name: 'Node.js',
+        level: 3,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/nodejs.svg',
+        url: 'https://nodejs.org/es/',
+      },
+      {
+        name: 'Express.js',
+        level: 3,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/express.svg',
+        url: 'https://expressjs.com/',
+      },
+      {
+        name: 'MongoDB',
+        level: 4,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/mongodb.svg',
+        url: 'https://www.mongodb.com/',
+      },
+      {
+        name: 'PostgreSQL',
+        level: 3,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/postgresql.svg',
+        url: 'https://www.postgresql.org/',
+      },
+      {
+        name: 'MySQL',
+        level: 3,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/mysql.svg',
+        url: 'https://www.mysql.com/',
+      },
+      {
+        name: 'OracleSQL',
+        level: 3,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/oracle.svg',
+        url: 'https://www.oracle.com/es/',
+      },
+      {
+        name: 'Strapi 5',
+        level: 3,
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/strapi.svg',
+        url: 'https://strapi.io/',
+      },
+    ],
+  },
+]
+---
+
+<SectionLayout
+  styles='animate-fade-up animate-once animate-ease-out animate-delay-200'
+>
+  <span slot='title'>Habilidades</span>
+
+  <main class='grid gap-5'>
+    {
+      SKILLS.map(({ title, technologies }: Skills) => (
+        <section>
+          <h2 class='text-lg font-base mb-2'>{title}</h2>
+          <div class='grid grid-cols-4 gap-2'>
+            {technologies.map(technology => (
+              // <CardSkill {...technology} />
+              <a
+                href='http://'
+                target='_blank'
+                rel='noopener noreferrer'
+                class='flex flex-col items-center gap-2 py-4 border-[1px] border-base-300'
+              >
+                <div class='flex items-center gap-2'>
+                  <div class='size-6 overflow-hidden'>
+                    <img
+                      src={technology.icon}
+                      alt={technology.name}
+                      class='w-full h-full'
+                    />
+                  </div>
+                  <p class='text-xl font-medium'>{technology.name}</p>
+                </div>
+
+                <div>
+                  <p class='text-xs font-medium'>{technology.level}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </main>
+</SectionLayout>
