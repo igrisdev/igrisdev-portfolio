@@ -1,0 +1,172 @@
+---
+import SectionLayout from '@components/general/SectionLayout.astro'
+import CardSkill from '@components/home/CardSkill.astro'
+
+import Html from '@assets/icons/html.svg'
+import Css from '@assets/icons/css.svg'
+import TailwindCSS from '@assets/icons/tailwindcss.svg'
+import JavaScript from '@assets/icons/javascript.svg'
+import TypeScript from '@assets/icons/typescript.svg'
+import AstroIcon from '@assets/icons/astro.svg'
+import React from '@assets/icons/react.svg'
+import NextJS from '@assets/icons/nextjs.svg'
+import Angular from '@assets/icons/angular.svg'
+
+import NodeJS from '@assets/icons/nodejs.svg'
+import Express from '@assets/icons/express.svg'
+import MongoDB from '@assets/icons/mongodb.svg'
+import PostgreSQL from '@assets/icons/postgresql.svg'
+import MySQL from '@assets/icons/mysql.svg'
+import OracleSQL from '@assets/icons/oracledb.svg'
+import Strapi from '@assets/icons/strapi.svg'
+
+interface Skills {
+  title: string
+  technologies: Skill[]
+}
+
+interface Skill {
+  name: string
+  level: number
+  icon: string | any
+  url: string
+}
+
+const SKILLS: Skills[] = [
+  {
+    title: 'Frontend',
+    technologies: [
+      {
+        name: 'HTML',
+        level: 5,
+        icon: Html,
+        url: 'https://developer.mozilla.org/es/docs/Web/HTML',
+      },
+      {
+        name: 'CSS',
+        level: 4,
+        icon: Css,
+        url: 'https://developer.mozilla.org/es/docs/Web/CSS',
+      },
+      {
+        name: 'TailwindCSS',
+        level: 5,
+        icon: TailwindCSS,
+        url: 'https://tailwindcss.com/',
+      },
+      {
+        name: 'JavaScript',
+        level: 4,
+        icon: JavaScript,
+        url: 'https://developer.mozilla.org/es/docs/Web/JavaScript',
+      },
+      {
+        name: 'TypeScript',
+        level: 3,
+        icon: TypeScript,
+        url: 'https://www.typescriptlang.org/',
+      },
+      {
+        name: 'Astro',
+        level: 4,
+        icon: AstroIcon,
+        url: 'https://astro.build/',
+      },
+      {
+        name: 'React',
+        level: 3,
+        icon: React,
+        url: 'https://es.reactjs.org/',
+      },
+      {
+        name: 'Next.js',
+        level: 2,
+        icon: NextJS,
+        url: 'https://nextjs.org/',
+      },
+      {
+        name: 'Angular',
+        level: 2,
+        icon: Angular,
+        url: 'https://angular.io/',
+      },
+    ],
+  },
+  {
+    title: 'Backend',
+    technologies: [
+      {
+        name: 'Node.js',
+        level: 3,
+        icon: NodeJS,
+        url: 'https://nodejs.org/en/',
+      },
+      {
+        name: 'Express.js',
+        level: 3,
+        icon: Express,
+        url: 'https://expressjs.com/',
+      },
+      {
+        name: 'MongoDB',
+        level: 4,
+        icon: MongoDB,
+        url: 'https://www.mongodb.com/',
+      },
+      {
+        name: 'PostgreSQL',
+        level: 3,
+        icon: PostgreSQL,
+        url: 'https://www.postgresql.org/',
+      },
+      {
+        name: 'MySQL',
+        level: 3,
+        icon: MySQL,
+        url: 'https://www.mysql.com/',
+      },
+      {
+        name: 'OracleSQL',
+        level: 3,
+        icon: OracleSQL,
+        url: 'https://www.oracle.com/es/',
+      },
+      {
+        name: 'Strapi 5',
+        level: 3,
+        icon: Strapi,
+        url: 'https://strapi.io/',
+      },
+    ],
+  },
+]
+---
+
+<SectionLayout
+  styles='animate-fade-up animate-once animate-ease-out animate-delay-200'
+>
+  <span slot='title'>Habilidades</span>
+
+  <main class='grid gap-5'>
+    {
+      SKILLS.map(({ title, technologies }: Skills) => (
+        <section>
+          <h2 class='text-lg font-base mb-2'>{title}</h2>
+          <div class='grid cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'>
+            {technologies.map(technology => (
+              <CardSkill {...technology} />
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </main>
+</SectionLayout>
+
+<style>
+  @media (max-width: 400px) {
+    .cols-1 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

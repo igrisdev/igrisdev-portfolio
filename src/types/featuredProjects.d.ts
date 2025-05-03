@@ -1,3 +1,8 @@
+export interface FeaturedProjects {
+  name: string
+  projects: FeaturedProject[]
+}
+
 export interface FeaturedProject {
   title: string
   description: string

@@ -1,5 +1,5 @@
 ---
-import type { FeaturedProject } from '@types/featuredProjects'
+import type { FeaturedProject, FeaturedProjects } from '@types/featuredProjects'
 
 import AstroIcon from '@assets/icons/AstroIcon.astro'
 import ReactIcon from '@assets/icons/ReactIcon.astro'
@@ -8,26 +8,96 @@ import SectionLayout from '@components/general/SectionLayout.astro'
 import ButtonLink from '@components/general/ButtonLink.astro'
 import CardFeaturedProject from '@components/home/CardFeaturedProject.astro'
 
-const featuredProjects: FeaturedProject[] = [
+const featuredProjects: FeaturedProjects[] = [
   {
-    title: 'now-technology',
-    description: '✨ Servicios de reparación para producto tecnológicos',
-    github: 'https://github.com/igrisdev/nowtechnology.git',
-    url: 'https://nowtechnology.vercel.app/',
-    icon_technology: AstroIcon,
-    url_technology: 'https://astro.build/',
-    tags: ['React', 'TailwindCSS', 'Airtable'],
-    logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
+    name: 'Freelancer',
+    projects: [
+      {
+        title: 'now-technology',
+        description: '✨ Servicios de reparación para producto tecnológicos',
+        github: 'https://github.com/igrisdev/nowtechnology.git',
+        url: 'https://nowtechnology.vercel.app/',
+        icon_technology: AstroIcon,
+        url_technology: 'https://astro.build/',
+        tags: ['React', 'TailwindCSS', 'Airtable'],
+        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
+      },
+    ],
   },
   {
-    title: 'App-clima',
-    description: '⛅ Consulta estadísticas del clima tu zona y el clima global',
-    github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
-    url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
-    icon_technology: ReactIcon,
-    url_technology: 'https://es.react.dev/',
-    tags: ['TailwindCSS', 'OpenWeather'],
-    logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
+    name: 'Universidad',
+    projects: [
+      {
+        title: 'Semillero_Pixel',
+        description: ' 🏻 Frontend de la página del semillero pixel ',
+        github: 'https://github.com/igrisdev/semillero_pixel.git',
+        url: 'https://semillero-pixel.vercel.app/',
+        icon_technology: AstroIcon,
+        url_technology: 'https://es.react.dev/',
+        tags: ['TailwindCSS', 'Website', 'TypeScript', 'React'],
+        logo: 'https://res.cloudinary.com/dbwupri3k/image/upload/v1746161629/igrisdev/jal8k9u9wzdpe6wcuqlj.svg',
+      },
+      {
+        title: 'Semillero_Pixel_Backend',
+        description:
+          '⛅ Consulta estadísticas del clima tu zona y el clima global',
+        github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
+        url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
+        icon_technology: ReactIcon,
+        url_technology: 'https://es.react.dev/',
+        tags: ['TailwindCSS', 'OpenWeather'],
+        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
+      },
+      {
+        title: 'UniAprende',
+        description:
+          '⛅ Consulta estadísticas del clima tu zona y el clima global',
+        github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
+        url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
+        icon_technology: ReactIcon,
+        url_technology: 'https://es.react.dev/',
+        tags: ['TailwindCSS', 'OpenWeather'],
+        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
+      },
+    ],
+  },
+  {
+    name: 'Personales',
+    projects: [
+      {
+        title: 'App-clima',
+        description:
+          '⛅ Consulta estadísticas del clima tu zona y el clima global',
+        github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
+        url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
+        icon_technology: ReactIcon,
+        url_technology: 'https://es.react.dev/',
+        tags: ['TailwindCSS', 'OpenWeather'],
+        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
+      },
+      {
+        title: 'igrisdev-portfolio',
+        description:
+          '⛅ Consulta estadísticas del clima tu zona y el clima global',
+        github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
+        url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
+        icon_technology: ReactIcon,
+        url_technology: 'https://es.react.dev/',
+        tags: ['TailwindCSS', 'OpenWeather'],
+        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
+      },
+      {
+        title: 'ecommerce-angular-sencillo',
+        description:
+          '⛅ Consulta estadísticas del clima tu zona y el clima global',
+        github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
+        url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
+        icon_technology: ReactIcon,
+        url_technology: 'https://es.react.dev/',
+        tags: ['TailwindCSS', 'OpenWeather'],
+        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
+      },
+    ],
   },
 ]
 ---
@@ -35,12 +105,33 @@ const featuredProjects: FeaturedProject[] = [
 <SectionLayout
   styles='animate-fade-up animate-once animate-ease-out animate-delay-200'
 >
-  <span slot='title'>Proyectos</span>
+  <span slot='title'>Proyectos Destacados</span>
   <div slot='stuff'>
     <ButtonLink url='/products' text='Ver mas' />
   </div>
 
-  <div class='grid md:grid-cols-2 gap-2'>
-    {featuredProjects.map(project => <CardFeaturedProject {...project} />)}
-  </div>
+  <main>
+    <section class='grid gap-5'>
+      {
+        featuredProjects.map(
+          ({
+            name,
+            projects,
+          }: {
+            name: string
+            projects: FeaturedProject[]
+          }) => (
+            <div>
+              <h3 class='text-lg font-normal mb-2'>{name}</h3>
+              <div class='grid md:grid-cols-2 gap-2'>
+                {projects.map(project => (
+                  <CardFeaturedProject {...project} />
+                ))}
+              </div>
+            </div>
+          )
+        )
+      }
+    </section>
+  </main>
 </SectionLayout>

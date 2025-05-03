@@ -1,4 +1,6 @@
 ---
+import '@styles/global.css'
+
 import Container from '@components/general/Container.astro'
 import Header from '../components/general/Header.astro'
 import Footer from '@components/general/Footer.astro'
@@ -17,7 +19,7 @@ const isHome = url === '/'
     <meta name='generator' content={Astro.generator} />
     <title>Johan Alvarez - Portfolio</title>
   </head>
-  <body>
+  <body class='font-geist'>
     <Header />
 
     <Container className=`grid pb-[32px] ${isHome ? 'gap-12' : 'gap-4'}` }>
@@ -27,26 +29,3 @@ const isHome = url === '/'
     <Footer />
   </body>
 </html>
-
-<style>
-  @font-face {
-    font-family: 'Geist';
-    src: url('/public/fonts/Geist.woff2') format('woff2');
-    font-weight: 100 900;
-    font-display: swap;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'GeistMono';
-    src: url('/public/fonts/GeistMonoVF.woff2') format('woff2');
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Gambarino';
-    src: url('/public/fonts/Gambarino-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-  }
-</style>
