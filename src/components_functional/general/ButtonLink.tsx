@@ -16,7 +16,7 @@ export const ButtonLink = ({
       href={url}
       target={target ? '_blank' : '_self'}
       rel='noopener noreferrer'
-      className='group flex gap-1 text-sm opacity-80 items-center hover:opacity-100'
+      className='group flex gap-1 text-sm text-primary items-center hover:text-primary-content'
     >
       {text}
       <ArrowRight
