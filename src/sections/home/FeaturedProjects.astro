@@ -34,7 +34,7 @@ const featuredProjects: FeaturedProjects[] = [
         url: 'https://semillero-pixel.vercel.app/',
         icon_technology: AstroIcon,
         url_technology: 'https://es.react.dev/',
-        tags: ['TailwindCSS', 'Website', 'TypeScript', 'React'],
+        tags: ['TailwindCSS', 'TypeScript', 'React'],
         logo: 'https://res.cloudinary.com/dbwupri3k/image/upload/v1746161629/igrisdev/jal8k9u9wzdpe6wcuqlj.svg',
       },
       {
@@ -122,7 +122,7 @@ const featuredProjects: FeaturedProjects[] = [
             projects: FeaturedProject[]
           }) => (
             <div>
-              <h3 class='text-lg font-normal mb-2'>{name}</h3>
+              <h3 class='text-lg font-medium mb-2 text-primary'>{name}</h3>
               <div class='grid md:grid-cols-2 gap-2'>
                 {projects.map(project => (
                   <CardFeaturedProject {...project} />

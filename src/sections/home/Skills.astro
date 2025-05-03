@@ -152,7 +152,7 @@ const SKILLS: Skills[] = [
       SKILLS.map(({ title, technologies }: Skills) => (
         <section>
           <h2 class='text-lg font-base mb-2'>{title}</h2>
-          <div class='grid cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'>
+          <div class='grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'>
             {technologies.map(technology => (
               <CardSkill {...technology} />
             ))}
@@ -162,11 +162,3 @@ const SKILLS: Skills[] = [
     }
   </main>
 </SectionLayout>
-
-<style>
-  @media (max-width: 400px) {
-    .cols-1 {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
