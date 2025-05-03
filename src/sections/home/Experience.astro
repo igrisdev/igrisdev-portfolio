@@ -5,17 +5,21 @@ import SectionLayout from '@components/general/SectionLayout.astro'
 <SectionLayout
   styles='animate-fade-up animate-once animate-ease-out animate-delay-200'
 >
-  <div class='flex items-center gap-5'>
+  <div class='flex items-center gap-3 md:gap-5'>
     <section
-      class='size-40 bg-gradient-to-tl from-transparent to-base-300 flex flex-col items-center justify-center'
+      class='size-20 xs:size-20 sm:size-25 md:size-33 lg:size-40 bg-gradient-to-tl from-transparent to-base-300 flex flex-col items-center justify-center'
     >
-      <h2 class='text-8xl font-black'>+1</h2>
+      <h2 class='text-4xl xs:text-4xl sm:text-6xl md:text-8xl font-black'>
+        +1
+      </h2>
       <p class='text-primary font-medium'>Año</p>
     </section>
 
     <section>
-      <h2 class='uppercase text-8xl font-black'>
-        Experiencia<span class='pl-4'>...</span>
+      <h2
+        class='uppercase text-xl xs:text-3xl s:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black'
+      >
+        Experiencia<span class='pl-1 sm:pl-4'>...</span>
       </h2>
     </section>
   </div>

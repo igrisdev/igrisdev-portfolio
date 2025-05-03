@@ -8,6 +8,7 @@
   --font-gambarino: 'Gambarino', 'sans-serif';
 
   --breakpoint-xs: 340px;
+  --breakpoint-s: 500px;
 }
 
 @plugin "daisyui/theme" {
