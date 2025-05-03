@@ -27,7 +27,7 @@ export const SearchProducts = () => {
 
   return (
     <form className='mt-2 animate-fade-up animate-once animate-ease-out'>
-      <label className='input input-bordered flex items-center gap-2'>
+      <label className='input input-bordered flex items-center gap-2 w-full'>
         <input
           type='text'
           className='grow'
