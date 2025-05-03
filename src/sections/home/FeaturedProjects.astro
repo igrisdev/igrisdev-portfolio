@@ -3,6 +3,8 @@ import type { FeaturedProject, FeaturedProjects } from '@types/featuredProjects'
 
 import AstroIcon from '@assets/icons/AstroIcon.astro'
 import ReactIcon from '@assets/icons/ReactIcon.astro'
+import StrapiIcon from '@assets/icons/StrapiIcon.astro'
+import AngularIcon from '@assets/icons/AngularIcon.astro'
 
 import SectionLayout from '@components/general/SectionLayout.astro'
 import ButtonLink from '@components/general/ButtonLink.astro'
@@ -12,6 +14,26 @@ const featuredProjects: FeaturedProjects[] = [
   {
     name: 'Freelancer',
     projects: [
+      {
+        title: 'Semillero_Pixel',
+        description: ' 🏻 Frontend de la página del semillero pixel ',
+        github: 'https://github.com/igrisdev/semillero_pixel.git',
+        url: 'https://semillero-pixel.vercel.app/',
+        icon_technology: AstroIcon,
+        url_technology: 'https://es.react.dev/',
+        tags: ['TailwindCSS', 'TypeScript', 'React'],
+        logo: 'https://res.cloudinary.com/dbwupri3k/image/upload/v1746161629/igrisdev/jal8k9u9wzdpe6wcuqlj.svg',
+      },
+      {
+        title: 'Semillero_Pixel_Backend',
+        description: '🔏 Backend en Strapi 5 para semillero pixel',
+        github: 'https://github.com/igrisdev/semillero_pixel_backend.git',
+        url: 'https://github.com/igrisdev/semillero_pixel_backend.git',
+        icon_technology: StrapiIcon,
+        url_technology: 'https://strapi.io/',
+        tags: ['TypeScript', 'PostgreSQL'],
+        logo: 'https://res.cloudinary.com/dbwupri3k/image/upload/v1746161629/igrisdev/jal8k9u9wzdpe6wcuqlj.svg',
+      },
       {
         title: 'now-technology',
         description: '✨ Servicios de reparación para producto tecnológicos',
@@ -28,35 +50,13 @@ const featuredProjects: FeaturedProjects[] = [
     name: 'Universidad',
     projects: [
       {
-        title: 'Semillero_Pixel',
-        description: ' 🏻 Frontend de la página del semillero pixel ',
-        github: 'https://github.com/igrisdev/semillero_pixel.git',
-        url: 'https://semillero-pixel.vercel.app/',
-        icon_technology: AstroIcon,
-        url_technology: 'https://es.react.dev/',
-        tags: ['TailwindCSS', 'TypeScript', 'React'],
-        logo: 'https://res.cloudinary.com/dbwupri3k/image/upload/v1746161629/igrisdev/jal8k9u9wzdpe6wcuqlj.svg',
-      },
-      {
-        title: 'Semillero_Pixel_Backend',
-        description:
-          '⛅ Consulta estadísticas del clima tu zona y el clima global',
-        github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
-        url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
-        icon_technology: ReactIcon,
-        url_technology: 'https://es.react.dev/',
-        tags: ['TailwindCSS', 'OpenWeather'],
-        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
-      },
-      {
         title: 'UniAprende',
-        description:
-          '⛅ Consulta estadísticas del clima tu zona y el clima global',
-        github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
-        url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
-        icon_technology: ReactIcon,
-        url_technology: 'https://es.react.dev/',
-        tags: ['TailwindCSS', 'OpenWeather'],
+        description: '🔢 Repositorio de estadistica en proceso',
+        github: 'https://github.com/igrisdev/uniaprende.git',
+        url: 'https://uniaprende.vercel.app/',
+        icon_technology: AstroIcon,
+        url_technology: 'https://astro.build/',
+        tags: ['Starlight', 'MDX'],
         logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
       },
     ],
@@ -76,25 +76,13 @@ const featuredProjects: FeaturedProjects[] = [
         logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
       },
       {
-        title: 'igrisdev-portfolio',
-        description:
-          '⛅ Consulta estadísticas del clima tu zona y el clima global',
-        github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
-        url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
-        icon_technology: ReactIcon,
-        url_technology: 'https://es.react.dev/',
-        tags: ['TailwindCSS', 'OpenWeather'],
-        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
-      },
-      {
         title: 'ecommerce-angular-sencillo',
-        description:
-          '⛅ Consulta estadísticas del clima tu zona y el clima global',
-        github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
-        url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
-        icon_technology: ReactIcon,
-        url_technology: 'https://es.react.dev/',
-        tags: ['TailwindCSS', 'OpenWeather'],
+        description: '👓 Aplicación web para aprender angular',
+        github: 'https://github.com/igrisdev/eCommerce-Angular-Sencillo.git',
+        url: 'https://my-project-psi-murex.vercel.app/',
+        icon_technology: AngularIcon,
+        url_technology: 'https://angular.io/',
+        tags: ['TailwindCSS', 'TypeScript'],
         logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
       },
     ],
