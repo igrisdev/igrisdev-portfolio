@@ -8,7 +8,7 @@ const isHome = url === '/'
 
 <Container
   element='footer'
-  className=`text-sm flex w-full items-center justify-center animate-fade-up animate-once animate-ease-out mb-6 ${isHome ? 'animate-delay-1000' : 'animate-delay-300'}`
+  className=`flex flex-col gap-2 text-sm  w-full items-center justify-center animate-fade-up animate-once animate-ease-out mb-6 ${isHome ? 'animate-delay-1000' : 'animate-delay-300'}`
 >
   <p>
     "Si puedes imaginarlo, puedes programarlo" - <a
@@ -18,6 +18,17 @@ const isHome = url === '/'
       class='text-primary'
     >
       Alejandro Taboada, 2019</a
+    >
+  </p>
+
+  <p>
+    Pagina inspirada en <a
+      href='https://pheralb.dev/'
+      target='_blank'
+      rel='noopener noreferrer'
+      class='text-primary'
+    >
+      pheralb.dev</a
     >
   </p>
 </Container>
