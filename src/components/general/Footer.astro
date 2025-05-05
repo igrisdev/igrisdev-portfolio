@@ -10,36 +10,35 @@ const isHome = url === '/'
   element='footer'
   className=`mt-6 font-gambarino flex flex-col gap-2 text-sm  w-full items-center text-center justify-center animate-fade-up animate-once animate-ease-out mb-6 ${isHome ? 'animate-delay-1000' : 'animate-delay-300'}`
 >
-  <p>
-    "Si puedes imaginarlo, puedes programarlo" - <a
+  <div class='bg-base-300 p-3 rounded-sm w-full'>
+    <p>"Si puedes imaginarlo, puedes programarlo"</p>
+    <a
       href='https://www.youtube.com/c/Programaci%C3%B3nATS'
       target='_blank'
       rel='noopener noreferrer'
-      class='text-primary'
+      class='text-primary font-geist block pt-2'
     >
-      Alejandro_Taboada, 2019</a
+      Alejandro Taboada</a
     >
-  </p>
+  </div>
 
-  <p>
-    Pagina inspirada en <a
+  <div
+    class='flex flex-wrap justify-center sm:justify-between w-full pt-4 gap-4 sm:gap-10'
+  >
+    <a
       href='https://pheralb.dev/'
       target='_blank'
       rel='noopener noreferrer'
-      class='text-primary'
+      class='text-primary'>Pagina inspirada en pheralb.dev</a
     >
-      pheralb.dev</a
-    >
-  </p>
 
-  <p class='font-semibold'>
-    Desarrollado por <a
+    <a
       href='https://github.com/igrisdev'
       target='_blank'
       rel='noopener noreferrer'
-      class='text-primary'
+      class='text-primary-content animate-pulse'
     >
-      Johan Alvarez</a
+      Desarrollado por Johan Alvarez</a
     >
-  </p>
+  </div>
 </Container>
