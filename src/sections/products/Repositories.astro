@@ -11,6 +11,5 @@ const { repos } = await getAllRepositories()
   class='min-h-[73vh] flex flex-col gap-4 animate-fade-up animate-once animate-ease-out animate-delay-200'
 >
   <InfoRepositories client:visible />
-
   <ContainerRepositories client:visible repos={repos} />
 </section>
