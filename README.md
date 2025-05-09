@@ -1,48 +1,104 @@
-# Astro Starter Kit: Basics
+# Portafolio Johan Alvarez 🚀
 
-```sh
-npm create astro@latest -- --template basics
+[Read in English](./README.en.md)
+
+[![Website Preview](./public/preview.png)](https://johan-alvarez.vercel.app)
+
+🌐 **URL del sitio:** [johan-alvarez.vercel.app](https://johan-alvarez.vercel.app/)
+
+Este es mi portfolio personal, construido con Astro, React, TypeScript y TailwindCSS. El sitio muestra mis proyectos, habilidades y experiencia como desarrollador.
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Framework:** [Astro](https://astro.build/) - El framework web para sitios impulsados por contenido
+- **Bibliotecas UI:**
+  - [React](https://reactjs.org/) - Para componentes interactivos
+  - [TailwindCSS](https://tailwindcss.com/) - Para estilos
+  - [DaisyUI](https://daisyui.com/) - Biblioteca de componentes
+- **Lenguaje:** [TypeScript](https://www.typescriptlang.org/) - Para desarrollo con tipado seguro
+- **Gestión de Estado:** [Nanostores](https://github.com/nanostores/nanostores) - Gestión de estado ligera
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── components/     # Componentes UI reutilizables (Astro y React)
+├── pages/         # Páginas de rutas
+├── sections/      # Secciones de páginas
+├── services/      # Lógica de negocio y servicios de datos
+└── public/        # Activos estáticos (fuentes, imágenes, PDFs)
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 💻 Configuración de Desarrollo
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Prerequisitos
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- Node.js (Se recomienda la última versión LTS)
+- Gestor de paquetes (npm, yarn, pnpm, o bun)
 
-## 🚀 Project Structure
+### Primeros Pasos
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+1. Clonar el repositorio
+```bash
+git clone [repository-url]
+cd igrisdev-portfolio
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+2. Instalar dependencias
+```bash
+bun install
+# o
+pnpm install
+# o
+yarn install
+# o
+npm install
+```
 
-## 🧞 Commands
+3. Iniciar servidor de desarrollo
+```bash
+bun run dev
+# o
+pnpm run dev
+# o
+yarn run dev
+# o
+npm run dev
+```
 
-All commands are run from the root of the project, from a terminal:
+### Scripts Disponibles
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- `dev`: Iniciar servidor de desarrollo
+- `build`: Crear build de producción
+- `preview`: Vista previa del build de producción
+- `astro`: Ejecutar comandos de Astro CLI
 
-## 👀 Want to learn more?
+## ✨ Características
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- 🎨 Diseño moderno y responsivo
+- 🔒 Desarrollo con tipado seguro usando TypeScript
+- ⚛️ Componentes UI interactivos con React
+- 🚄 Rápido y optimizado con Astro
+- 💫 Animaciones suaves con TailwindCSS
+- 🧩 Hermosos componentes UI con DaisyUI
+
+## 📦 Dependencias
+
+### Dependencias Principales
+- @astrojs/react - Integración de React para Astro
+- @astrojs/vercel - Adaptador de despliegue para Vercel
+- react & react-dom - Biblioteca UI
+- tailwindcss - Framework CSS utilitario
+- lucide-react - Set de iconos modernos
+- nanostores - Gestión de estado ligera
+
+### Dependencias de Desarrollo
+- daisyui - Biblioteca de componentes para Tailwind CSS
+- tailwindcss-animated - Utilidades de animación
+
+## 🚀 Despliegue
+
+Este proyecto está optimizado para despliegue en Vercel:
+1. Conecta tu repositorio a Vercel
+2. Vercel detectará automáticamente la configuración de Astro
+3. Tu sitio se desplegará y actualizará automáticamente con cada push
