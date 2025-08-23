@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets'
-
 import RowIcon from '@assets/icons/RowIcon.astro'
 import GitHubIcon from '@assets/icons/GitHubIcon.astro'
 
@@ -23,9 +21,9 @@ const {
 ---
 
 <article
-  class='article-featured-projects relative border-[1px] border-base-300 rounded-md p-4 grid md:grid-rows-3 gap-1 overflow-hidden'
+  class='article-featured-projects relative rounded-md p-4 grid md:grid-rows-3 gap-1 overflow-hidden'
 >
-  <header class='flex justify-between items-center'>
+  <header class='flex justify-between items-center z-20'>
     <div class='flex items-center gap-3'>
       <div class='size-6 overflow-hidden bg-slate-200 p-0.5 rounded-xs'>
         <img src={logo} alt={title} class='w-full h-full object-cover' />
@@ -34,7 +32,7 @@ const {
         href={url}
         target='_blank'
         rel='noopener noreferrer'
-        class='group flex gap-1 text-lg font-medium items-center hover:underline decoration-dotted underline-offset-4 text-primary-content'
+        class='group flex gap-1 text-lg font-medium items-center hover:underline decoration-dotted underline-offset-4 text-neutral-100 hover:text-amber-400 transition-colors'
       >
         <span class='lowercase'>{title}</span>
         <RowIcon
@@ -43,12 +41,12 @@ const {
         />
       </a>
     </div>
-    <div>
+    <div class='z-20'>
       <a
         href={github}
         target='_blank'
         rel='noopener noreferrer'
-        class='text-primary hover:text-primary-content'
+        class='text-neutral-400 hover:text-amber-400 transition-colors'
       >
         <GitHubIcon width='18' />
       </a>
@@ -56,12 +54,12 @@ const {
   </header>
 
   <main
-    class='flex items-center text-sm text-pretty tracking-tight text-primary'
+    class='flex items-center text-sm text-pretty tracking-tight text-neutral-300 z-20'
   >
     <p>{description}</p>
   </main>
 
-  <footer class='hidden md:flex gap-3 items-center'>
+  <footer class='hidden md:flex gap-3 items-center z-20'>
     <a href={url_technology} target='_blank' rel='noopener noreferrer'>
       <Icon width='18' height='18' />
     </a>
@@ -71,43 +69,78 @@ const {
   </footer>
 
   <div class='circle-shadow'></div>
-  <!-- <input
-    aria-hidden='true'
-    class='pointer-events-none absolute left-0 top-0 z-10 h-full w-full cursor-default rounded-[0.310rem] border transition-opacity duration-500 placeholder:select-none
-    border-white/50'
-    style='
-      opacity: 1;
-      -webkit-mask-image: radial-gradient(30% 30px at 0px 0px, black 45%, transparent);
-      background-color: transparent;
-    '
-  /> -->
 </article>
 
 <style>
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .article-featured-projects {
+    --card-bg: rgb(23 23 23); /* neutral-900 opaco */
+  }
+
+  /* La capa de fondo oscuro */
+  .article-featured-projects::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    inset: 1px;
+    background: var(--card-bg);
+    border-radius: 0.31rem;
+  }
+
+  /* La capa con el gradiente que gira */
+  .article-featured-projects::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0%,
+      transparent 75%,
+      #daa520 90%,
+      transparent 100%
+    );
+    /* CAMBIO: La animación ahora es permanente, no solo en hover */
+    animation: rotate 4s linear infinite;
+  }
+
+  /* AÑADIDO: Estilos para la sombra dorada que sigue al cursor */
   .circle-shadow {
-    background: rgb(31, 31, 31);
     background: radial-gradient(
       circle,
-      rgba(70, 68, 68, 0.1) 0%,
-      rgba(70, 68, 68, 0.05) 20%,
-      rgba(70, 68, 68, 0) 60%
+      rgba(218, 165, 32, 0.15) 0%,
+      /* Dorado con alfa */ rgba(218, 165, 32, 0.1) 20%,
+      rgba(218, 165, 32, 0) 60%
     );
     border-radius: 50%;
     width: 600px;
     height: 600px;
     position: absolute;
-    z-index: -1;
+    /* Se posiciona entre el contenido y el fondo de la tarjeta */
+    z-index: 1;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    pointer-events: none; /* Evita que la sombra interfiera con el mouse */
   }
 </style>
 
 <script>
-  const article = document.querySelectorAll(
+  const articles = document.querySelectorAll(
     '.article-featured-projects'
   ) as NodeListOf<HTMLElement>
 
-  article.forEach(el => {
+  articles.forEach(el => {
     el.addEventListener('mouseover', e => {
       const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
       circleShadow.style.opacity = '1'
@@ -120,8 +153,12 @@ const {
 
     el.addEventListener('mousemove', e => {
       const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
-      circleShadow.style.left = `${e.layerX - 300}px`
-      circleShadow.style.top = `${e.layerY - 300}px`
+      // Usamos e.offsetX/offsetY para un cálculo más preciso dentro del elemento
+      const rect = el.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      circleShadow.style.left = `${x - 300}px`
+      circleShadow.style.top = `${y - 300}px`
     })
   })
 </script>
