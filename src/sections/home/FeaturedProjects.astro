@@ -3,17 +3,31 @@ import type { FeaturedProject, FeaturedProjects } from '@types/featuredProjects'
 
 import AstroIcon from '@assets/icons/AstroIcon.astro'
 import ReactIcon from '@assets/icons/ReactIcon.astro'
-import StrapiIcon from '@assets/icons/StrapiIcon.astro'
+// import StrapiIcon from '@assets/icons/StrapiIcon.astro'
 import AngularIcon from '@assets/icons/AngularIcon.astro'
+import NextJsIcon from '@assets/icons/NextJsIcon.astro'
+
+import LogoJake from '@assets/logos/jake.png'
 
 import SectionLayout from '@components/general/SectionLayout.astro'
 import ButtonLink from '@components/general/ButtonLink.astro'
 import CardFeaturedProject from '@components/home/CardFeaturedProject.astro'
+import CardFeaturedProjectPremium from '@components/home/CardFeaturedProjectPremium.astro'
 
 const featuredProjects: FeaturedProjects[] = [
   {
     name: 'Freelancer',
     projects: [
+      {
+        title: 'Jake',
+        description: ' 🏻 Frontend de un eCommerce de la empresa Jake',
+        github: 'https://github.com/kevin-medina-jake/jake-tienda-frontend.git',
+        url: 'https://www.jaketiendaelectronica.com/',
+        icon_technology: NextJsIcon,
+        url_technology: 'https://nextjs.org/',
+        tags: ['TailwindCSS', 'TypeScript', 'NextJS', 'Shopify'],
+        logo: LogoJake.src,
+      },
       {
         title: 'Semillero_Pixel',
         description: ' 🏻 Frontend de la página del semillero pixel ',
@@ -24,16 +38,16 @@ const featuredProjects: FeaturedProjects[] = [
         tags: ['TailwindCSS', 'TypeScript', 'React'],
         logo: 'https://res.cloudinary.com/dbwupri3k/image/upload/v1746161629/igrisdev/jal8k9u9wzdpe6wcuqlj.svg',
       },
-      {
-        title: 'Semillero_Pixel_Backend',
-        description: '🔏 Backend en Strapi 5 para semillero pixel',
-        github: 'https://github.com/igrisdev/semillero_pixel_backend.git',
-        url: 'https://github.com/igrisdev/semillero_pixel_backend.git',
-        icon_technology: StrapiIcon,
-        url_technology: 'https://strapi.io/',
-        tags: ['TypeScript', 'PostgreSQL'],
-        logo: 'https://res.cloudinary.com/dbwupri3k/image/upload/v1746161629/igrisdev/jal8k9u9wzdpe6wcuqlj.svg',
-      },
+      // {
+      //   title: 'Semillero_Pixel_Backend',
+      //   description: '🔏 Backend en Strapi 5 para semillero pixel',
+      //   github: 'https://github.com/igrisdev/semillero_pixel_backend.git',
+      //   url: 'https://github.com/igrisdev/semillero_pixel_backend.git',
+      //   icon_technology: StrapiIcon,
+      //   url_technology: 'https://strapi.io/',
+      //   tags: ['TypeScript', 'PostgreSQL'],
+      //   logo: 'https://res.cloudinary.com/dbwupri3k/image/upload/v1746161629/igrisdev/jal8k9u9wzdpe6wcuqlj.svg',
+      // },
       {
         title: 'now-technology',
         description: '✨ Servicios de reparación para producto tecnológicos',
@@ -111,11 +125,19 @@ const featuredProjects: FeaturedProjects[] = [
           }) => (
             <div>
               <h3 class='text-lg font-medium mb-2 text-primary'>{name}</h3>
-              <div class='grid md:grid-cols-2 gap-2'>
-                {projects.map(project => (
-                  <CardFeaturedProject {...project} />
-                ))}
-              </div>
+              {name === 'Freelancer' ? (
+                <div class='grid md:grid-cols-2 gap-2'>
+                  {projects.map(project => (
+                    <CardFeaturedProjectPremium {...project} />
+                  ))}
+                </div>
+              ) : (
+                <div class='grid md:grid-cols-2 gap-2'>
+                  {projects.map(project => (
+                    <CardFeaturedProject {...project} />
+                  ))}
+                </div>
+              )}
             </div>
           )
         )
