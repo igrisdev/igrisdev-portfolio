@@ -3,6 +3,7 @@ dist/
 
 # generated types
 .astro/
+.vscode/
 
 # dependencies
 node_modules/
@@ -22,5 +23,3 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
-
-.vscode/
