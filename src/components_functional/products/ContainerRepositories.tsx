@@ -15,7 +15,7 @@ export const ContainerRepositories = ({
   const [loading, setLoading] = useState(true)
 
   const repositories = useStore(repositoriesStore)
-  const skeleton = Array(4).fill('')
+  const skeleton = Array(10).fill('')
 
   const addRepository = ({ repos }: { repos: GithubResultAPI[] }) => {
     cacheRepositoriesStore.set(repos)
