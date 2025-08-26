@@ -1,30 +1,43 @@
 ---
 import RowIcon from '@assets/icons/RowIcon.astro'
-import GitHubIcon from '@assets/icons/GitHubIcon.astro'
 
 import type { FeaturedProject } from '@types/featuredProjects'
 
 import Tags from '@components/general/Tags.astro'
+import { Image } from 'astro:assets'
+import imageNotFound from '@assets/not_found.png'
 
 interface Props extends FeaturedProject {}
 
 const {
   title,
   description,
-  github,
   url,
   icon_technology: Icon,
   url_technology,
   tags,
   logo,
+  image,
 } = Astro.props
 ---
 
 <article
-  class='article-featured-projects relative rounded-md border-[1px] border-amber-400 p-4 grid md:grid-rows-3 gap-1 overflow-hidden'
+  class='article-featured-projects relative rounded-md border-[1px] border-amber-400 p-4 grid gap-2 overflow-hidden'
 >
-  <header class='flex justify-between items-center z-20'>
-    <div class='flex items-center gap-3'>
+  <section class='flex flex-col z-20 gap-3'>
+    <section class='border border-base-300 overflow-hidden rounded-md'>
+      <a href={url} target='_blank' rel='noopener noreferrer'>
+        <Image
+          src={image ?? imageNotFound}
+          alt={title}
+          width={600}
+          height={600}
+          class='w-full h-full object-cover hover:scale-105 transition-transform'
+        />
+      </a>
+    </section>
+
+    <section class='flex items-center gap-3'>
       <div class='size-6 overflow-hidden bg-slate-200 p-0.5 rounded-xs'>
         <img src={logo} alt={title} class='w-full h-full object-cover' />
       </div>
@@ -40,18 +53,8 @@ const {
           styles='-rotate-45 group-hover:scale-125 transition-transform duration-200'
         />
       </a>
-    </div>
-    <div class='z-20'>
-      <a
-        href={github}
-        target='_blank'
-        rel='noopener noreferrer'
-        class='text-neutral-400 hover:text-amber-400 transition-colors'
-      >
-        <GitHubIcon width='18' />
-      </a>
-    </div>
-  </header>
+    </section>
+  </section>
 
   <main
     class='flex items-center text-sm text-pretty tracking-tight text-primary z-20'
@@ -59,7 +62,7 @@ const {
     <p>{description}</p>
   </main>
 
-  <footer class='hidden md:flex gap-3 items-center z-20'>
+  <footer class='flex gap-3 items-center z-20'>
     <a href={url_technology} target='_blank' rel='noopener noreferrer'>
       <Icon width='18' height='18' />
     </a>

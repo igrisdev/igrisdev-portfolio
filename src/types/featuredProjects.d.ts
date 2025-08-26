@@ -6,10 +6,11 @@ export interface FeaturedProjects {
 export interface FeaturedProject {
   title: string
   description: string
-  github: string
+  github?: string
   url: string
   icon_technology: any
   url_technology: string
   tags: string[]
   logo: string
+  image?: ImageMetadata
 }
