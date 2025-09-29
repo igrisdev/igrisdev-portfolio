@@ -8,9 +8,11 @@ import AngularIcon from '@assets/icons/AngularIcon.astro'
 import NextJsIcon from '@assets/icons/NextJsIcon.astro'
 
 import LogoJake from '@assets/logos/jake.png'
+import LogoJBLPopayán from '@assets/logos/jbl_popayan.png'
 
 import imageFreelancerSemilleroPixel from '@assets/freelancer/semillero_pixel.png'
 import imageFreelancerJakeTienda from '@assets/freelancer/jake_tienda.png'
+import imageFreelancerJBLPopayan from '@assets/freelancer/jbl_popayan_tienda.png'
 
 import SectionLayout from '@components/general/SectionLayout.astro'
 import ButtonLink from '@components/general/ButtonLink.astro'
@@ -21,6 +23,17 @@ const featuredProjects: FeaturedProjects[] = [
   {
     name: 'Freelancer',
     projects: [
+      {
+        title: 'JBL_Popayán',
+        description: '🔈 Productos Originales y de Alta Calidad de JBL',
+        // github: 'https://github.com/kevin-medina-jake/jake-tienda-frontend.git',
+        url: 'https://www.jblpopayan.com/',
+        icon_technology: NextJsIcon,
+        url_technology: 'https://nextjs.org/',
+        tags: ['TailwindCSS', 'TypeScript', 'NextJS', 'Shopify'],
+        logo: LogoJBLPopayán.src,
+        image: imageFreelancerJBLPopayan,
+      },
       {
         title: 'Jake_Tienda',
         description: '🔈 Compra los mejores productos de DJ en Jake',
