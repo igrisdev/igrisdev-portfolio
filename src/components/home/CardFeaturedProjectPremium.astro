@@ -1,11 +1,11 @@
 ---
-import RowIcon from '@assets/icons/RowIcon.astro'
+import RowIcon from "@assets/icons/RowIcon.astro";
 
-import type { FeaturedProject } from '@types/featuredProjects'
+import type { FeaturedProject } from "@types/featuredProjects";
 
-import Tags from '@components/general/Tags.astro'
-import { Image } from 'astro:assets'
-import imageNotFound from '@assets/not_found.png'
+import Tags from "@components/general/Tags.astro";
+import { Image } from "astro:assets";
+import imageNotFound from "@assets/not_found.png";
 
 interface Props extends FeaturedProject {}
 
@@ -13,65 +13,66 @@ const {
   title,
   description,
   url,
-  icon_technology: Icon,
+  icon_technology,
   url_technology,
   tags,
   logo,
   image,
-} = Astro.props
+} = Astro.props;
 ---
 
 <article
-  class='article-featured-projects relative rounded-md border-[1px] border-amber-400 p-4 grid gap-2 overflow-hidden'
+  class="article-featured-projects relative rounded-md border-[1px] border-amber-400 p-4 grid gap-2 overflow-hidden"
 >
-  <section class='flex flex-col z-20 gap-3'>
-    <section class='border border-base-300 overflow-hidden rounded-md'>
-      <a href={url} target='_blank' rel='noopener noreferrer'>
+  <section class="flex flex-col z-20 gap-3">
+    <section class="border border-base-300 overflow-hidden rounded-md">
+      <a href={url} target="_blank" rel="noopener noreferrer">
         <Image
           src={image ?? imageNotFound}
           alt={title}
           width={600}
           height={600}
-          class='w-full h-full object-cover hover:scale-105 transition-transform'
+          class="w-full h-full object-cover hover:scale-105 transition-transform"
         />
       </a>
     </section>
 
-    <section class='flex items-center gap-3'>
-      <div class='size-6 overflow-hidden bg-slate-200 p-0.5 rounded-xs'>
-        <img src={logo} alt={title} class='w-full h-full object-cover' />
+    <section class="flex items-center gap-3">
+      <div class="size-6 overflow-hidden bg-slate-200 p-0.5 rounded-xs">
+        <img src={logo} alt={title} class="w-full h-full object-cover" />
       </div>
       <a
         href={url}
-        target='_blank'
-        rel='noopener noreferrer'
-        class='group flex gap-1 text-lg font-medium items-center hover:underline decoration-dotted underline-offset-4 hover:text-amber-400 text-primary-content transition-colors'
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex gap-1 text-lg font-medium items-center hover:underline decoration-dotted underline-offset-4 hover:text-amber-400 text-primary-content transition-colors"
       >
-        <span class='lowercase'>{title}</span>
+        <span class="lowercase">{title}</span>
         <RowIcon
-          width='12'
-          styles='-rotate-45 group-hover:scale-125 transition-transform duration-200'
+          width="12"
+          styles="-rotate-45 group-hover:scale-125 transition-transform duration-200"
         />
       </a>
     </section>
   </section>
 
   <main
-    class='flex items-center text-sm text-pretty tracking-tight text-primary z-20'
+    class="flex items-center text-sm text-pretty tracking-tight text-primary z-20"
   >
     <p>{description}</p>
   </main>
 
-  <footer class='flex gap-3 items-center z-20'>
-    <a href={url_technology} target='_blank' rel='noopener noreferrer'>
-      <Icon width='18' height='18' />
+  <footer class="flex gap-3 items-center z-20">
+    <a href={url_technology} target="_blank" rel="noopener noreferrer">
+      <!-- <Icon width="18" height="18" /> -->
+      <img src={icon_technology} alt={title} class="size-6 object-cover" />
     </a>
-    <div class='flex gap-1 flex-wrap cursor-context-menu'>
-      {tags.map((name: string) => <Tags>{name}</Tags>)}
+    <div class="flex gap-1 flex-wrap cursor-context-menu">
+      {tags.map(({ tag }) => <Tags>{tag}</Tags>)}
     </div>
   </footer>
 
-  <div class='circle-shadow'></div>
+  <div class="circle-shadow"></div>
 </article>
 
 <style>
@@ -89,7 +90,7 @@ const {
   }
 
   .article-featured-projects::after {
-    content: '';
+    content: "";
     position: absolute;
     z-index: 0;
     inset: 1px;
@@ -98,7 +99,7 @@ const {
   }
 
   .article-featured-projects::before {
-    content: '';
+    content: "";
     position: absolute;
     z-index: -1;
     width: 200%;
@@ -135,28 +136,28 @@ const {
 
 <script>
   const articles = document.querySelectorAll(
-    '.article-featured-projects'
-  ) as NodeListOf<HTMLElement>
+    ".article-featured-projects",
+  ) as NodeListOf<HTMLElement>;
 
-  articles.forEach(el => {
-    el.addEventListener('mouseover', e => {
-      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
-      circleShadow.style.opacity = '1'
-    })
+  articles.forEach((el) => {
+    el.addEventListener("mouseover", (e) => {
+      const circleShadow = el.querySelector(".circle-shadow") as HTMLDivElement;
+      circleShadow.style.opacity = "1";
+    });
 
-    el.addEventListener('mouseout', e => {
-      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
-      circleShadow.style.opacity = '0'
-    })
+    el.addEventListener("mouseout", (e) => {
+      const circleShadow = el.querySelector(".circle-shadow") as HTMLDivElement;
+      circleShadow.style.opacity = "0";
+    });
 
-    el.addEventListener('mousemove', e => {
-      const circleShadow = el.querySelector('.circle-shadow') as HTMLDivElement
+    el.addEventListener("mousemove", (e) => {
+      const circleShadow = el.querySelector(".circle-shadow") as HTMLDivElement;
       // Usamos e.offsetX/offsetY para un cálculo más preciso dentro del elemento
-      const rect = el.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      circleShadow.style.left = `${x - 300}px`
-      circleShadow.style.top = `${y - 300}px`
-    })
-  })
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      circleShadow.style.left = `${x - 300}px`;
+      circleShadow.style.top = `${y - 300}px`;
+    });
+  });
 </script>

@@ -1,163 +1,74 @@
 ---
-import type { FeaturedProject, FeaturedProjects } from '@types/featuredProjects'
+import type {
+  FeaturedProject,
+  FeaturedProjects,
+} from "@types/featuredProjects";
 
-import AstroIcon from '@assets/icons/AstroIcon.astro'
-import ReactIcon from '@assets/icons/ReactIcon.astro'
-// import StrapiIcon from '@assets/icons/StrapiIcon.astro'
-import AngularIcon from '@assets/icons/AngularIcon.astro'
-import NextJsIcon from '@assets/icons/NextJsIcon.astro'
+import SectionLayout from "@components/general/SectionLayout.astro";
+import ButtonLink from "@components/general/ButtonLink.astro";
+import CardFeaturedProject from "@components/home/CardFeaturedProject.astro";
+import CardFeaturedProjectPremium from "@components/home/CardFeaturedProjectPremium.astro";
+import { getAllProjects } from "@services/getAllProjects";
 
-import LogoJake from '@assets/logos/jake.png'
-import LogoJBLPopayán from '@assets/logos/jbl_popayan.png'
-
-import imageFreelancerSemilleroPixel from '@assets/freelancer/semillero_pixel.png'
-import imageFreelancerJakeTienda from '@assets/freelancer/jake_tienda.png'
-import imageFreelancerJBLPopayan from '@assets/freelancer/jbl_popayan_tienda.png'
-
-import SectionLayout from '@components/general/SectionLayout.astro'
-import ButtonLink from '@components/general/ButtonLink.astro'
-import CardFeaturedProject from '@components/home/CardFeaturedProject.astro'
-import CardFeaturedProjectPremium from '@components/home/CardFeaturedProjectPremium.astro'
-
-const featuredProjects: FeaturedProjects[] = [
-  {
-    name: 'Freelancer',
-    projects: [
-      {
-        title: 'JBL_Popayán',
-        description: '🔈 Productos Originales y de Alta Calidad de JBL',
-        // github: 'https://github.com/kevin-medina-jake/jake-tienda-frontend.git',
-        url: 'https://www.jblpopayan.com/',
-        icon_technology: NextJsIcon,
-        url_technology: 'https://nextjs.org/',
-        tags: ['TailwindCSS', 'TypeScript', 'NextJS', 'Shopify'],
-        logo: LogoJBLPopayán.src,
-        image: imageFreelancerJBLPopayan,
-      },
-      {
-        title: 'Jake_Tienda',
-        description: '🔈 Compra los mejores productos de DJ en Jake',
-        // github: 'https://github.com/kevin-medina-jake/jake-tienda-frontend.git',
-        url: 'https://www.jaketiendaelectronica.com/',
-        icon_technology: NextJsIcon,
-        url_technology: 'https://nextjs.org/',
-        tags: ['TailwindCSS', 'TypeScript', 'NextJS', 'Shopify'],
-        logo: LogoJake.src,
-        image: imageFreelancerJakeTienda,
-      },
-      {
-        title: 'Semillero_Pixel',
-        description: ' 🏻 Frontend de la página del semillero pixel ',
-        // github: 'https://github.com/igrisdev/semillero_pixel.git',
-        url: 'https://semillero-pixel.vercel.app/',
-        icon_technology: AstroIcon,
-        url_technology: 'https://es.react.dev/',
-        tags: ['TailwindCSS', 'TypeScript', 'React'],
-        logo: 'https://res.cloudinary.com/dbwupri3k/image/upload/v1746161629/igrisdev/jal8k9u9wzdpe6wcuqlj.svg',
-        image: imageFreelancerSemilleroPixel,
-      },
-      // {
-      //   title: 'Semillero_Pixel_Backend',
-      //   description: '🔏 Backend en Strapi 5 para semillero pixel',
-      //   github: 'https://github.com/igrisdev/semillero_pixel_backend.git',
-      //   url: 'https://github.com/igrisdev/semillero_pixel_backend.git',
-      //   icon_technology: StrapiIcon,
-      //   url_technology: 'https://strapi.io/',
-      //   tags: ['TypeScript', 'PostgreSQL'],
-      //   logo: 'https://res.cloudinary.com/dbwupri3k/image/upload/v1746161629/igrisdev/jal8k9u9wzdpe6wcuqlj.svg',
-      // },
-    ],
-  },
-  {
-    name: 'Universidad',
-    projects: [
-      {
-        title: 'UniAprende',
-        description: '🔢 Repositorio de estadistica en proceso',
-        github: 'https://github.com/igrisdev/uniaprende.git',
-        url: 'https://uniaprende.vercel.app/',
-        icon_technology: AstroIcon,
-        url_technology: 'https://astro.build/',
-        tags: ['Starlight', 'MDX'],
-        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
-      },
-    ],
-  },
-  {
-    name: 'Personales',
-    projects: [
-      {
-        title: 'Now_Technology',
-        description: '✨ Servicios de reparación para producto tecnológicos',
-        github: 'https://github.com/igrisdev/nowtechnology.git',
-        url: 'https://nowtechnology.vercel.app/',
-        icon_technology: AstroIcon,
-        url_technology: 'https://astro.build/',
-        tags: ['React', 'TailwindCSS', 'Airtable'],
-        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
-      },
-      {
-        title: 'App_Clima',
-        description:
-          '⛅ Consulta estadísticas del clima tu zona y el clima global',
-        github: 'https://github.com/igrisdev/WEATHER-APP-MASTER-TJIGRIS.git',
-        url: 'https://gleeful-salmiakki-5ff1cd.netlify.app/',
-        icon_technology: ReactIcon,
-        url_technology: 'https://es.react.dev/',
-        tags: ['TailwindCSS', 'OpenWeather'],
-        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
-      },
-      {
-        title: 'Ecommerce-Angular-Sencillo',
-        description: '👓 Aplicación web para aprender angular',
-        github: 'https://github.com/igrisdev/eCommerce-Angular-Sencillo.git',
-        url: 'https://my-project-psi-murex.vercel.app/',
-        icon_technology: AngularIcon,
-        url_technology: 'https://angular.io/',
-        tags: ['TailwindCSS', 'TypeScript'],
-        logo: 'https://c02.purpledshub.com/uploads/sites/48/2021/03/potw1804a-4976fcc.jpg?w=1029&webp=1',
-      },
-    ],
-  },
-]
+const projects = await getAllProjects();
 ---
 
 <SectionLayout
-  styles='animate-fade-up animate-once animate-ease-out animate-delay-300'
+  styles="animate-fade-up animate-once animate-ease-out animate-delay-300"
 >
-  <span slot='title'>Proyectos Destacados</span>
-  <div slot='stuff'>
-    <ButtonLink url='/products' text='Ver mas' />
+  <span slot="title">Proyectos Destacados</span>
+  <div slot="stuff">
+    <ButtonLink url="/products" text="Ver mas" />
   </div>
 
   <main>
-    <section class='grid gap-5'>
+    <section class="grid gap-5">
       {
-        featuredProjects.map(
+        projects.map(
           ({
             name,
             projects,
           }: {
-            name: string
-            projects: FeaturedProject[]
+            name: string;
+            projects: FeaturedProject[];
           }) => (
             <div>
-              <h3 class='text-lg font-medium mb-2 text-primary'>{name}</h3>
-              {name === 'Freelancer' ? (
-                <div class='grid md:grid-cols-2 gap-2'>
-                  {projects.map(project => (
+              {name === "Freelancer" && (
+              <h3 class="text-lg font-medium mb-2 text-primary">{name}</h3>
+
+                <div class="grid md:grid-cols-2 gap-2">
+                  {projects.map((project) => (
                     <CardFeaturedProjectPremium {...project} />
                   ))}
                 </div>
-              ) : (
-                <div class='grid md:grid-cols-2 gap-2'>
-                  {projects.map(project => (
+              )}
+            </div>
+          ),
+        )
+      }
+
+      {
+        projects.map(
+          ({
+            name,
+            projects,
+          }: {
+            name: string;
+            projects: FeaturedProject[];
+          }) => (
+            <div>
+              {name !== "Freelancer" &&
+              (
+                <h3 class="text-lg font-medium mb-2 text-primary">{name}</h3>
+
+                <div class="grid md:grid-cols-2 gap-2">
+                  {projects.map((project) => (
                     <CardFeaturedProject {...project} />
                   ))}
                 </div>
               )}
             </div>
-          )
+          ),
         )
       }
     </section>
