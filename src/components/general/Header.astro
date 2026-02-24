@@ -1,40 +1,39 @@
 ---
-import img from '/public/img.png'
+import img from "/public/img.png";
 
-import cv from '/public/CV_JOHAN_MANUEL_ALVAREZ_PINTA.pdf'
+import ButtonDownloadCV from "@components/general/ButtonDownloadCV.astro";
 
-import LinkedInIcon from '@assets/icons/LinkedInIcon.astro'
-import Container from '@components/general/Container.astro'
-import GitHubIcon from '@assets/icons/GitHubIcon.astro'
-import DownloadIcon from '@assets/icons/DownloadIcon.astro'
-import SunIcon from '@assets/icons/SunIcon.astro'
-import MoonIcon from '@assets/icons/MoonIcon.astro'
+import LinkedInIcon from "@assets/icons/LinkedInIcon.astro";
+import Container from "@components/general/Container.astro";
+import GitHubIcon from "@assets/icons/GitHubIcon.astro";
+import SunIcon from "@assets/icons/SunIcon.astro";
+import MoonIcon from "@assets/icons/MoonIcon.astro";
 
 const socialLinks = [
   {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/johan-alvarez-pinta/',
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/johan-alvarez-pinta/",
     icon: LinkedInIcon,
   },
   {
-    name: 'GitHub',
-    url: 'https://github.com/igrisdev',
+    name: "GitHub",
+    url: "https://github.com/igrisdev",
     icon: GitHubIcon,
   },
-]
+];
 ---
 
 <Container
-  element='header'
-  className='sticky top-0 z-50 mt-5 py-4 flex w-full items-center justify-between backdrop-blur-md'
+  element="header"
+  className="sticky top-0 z-50 mt-5 py-4 flex w-full items-center justify-between backdrop-blur-md"
 >
-  <section class='flex gap-3'>
+  <section class="flex gap-3">
     <a
-      href='/'
-      class='text-md flex items-center space-x-2 font-medium tracking-tight text-primary transition-opacity duration-150 hover:text-primary-content'
+      href="/"
+      class="text-md flex items-center space-x-2 font-medium tracking-tight text-primary transition-opacity duration-150 hover:text-primary-content"
     >
-      <div class='avatar'>
-        <div class='w-12 rounded-full'>
+      <div class="avatar">
+        <div class="w-12 rounded-full">
           <img src={img.src} />
         </div>
       </div>
@@ -43,92 +42,86 @@ const socialLinks = [
     </a>
   </section>
 
-  <section class='flex items-center gap-2'>
-    <a
-      href={cv}
-      target='_blank'
-      class='btn btn-sm w-max bg-transparent border-none shadow-none hover:bg-success hover:text-base-100'
-    >
-      <DownloadIcon width='18' /> CV
-    </a>
+  <section class="flex items-center gap-2">
+    <ButtonDownloadCV />
 
     {
       socialLinks.map(({ name, url, icon: IconComponent }) => (
         <a
           href={url}
           title={name}
-          target='_blank'
-          rel='noopener noreferrer'
-          class='btn btn-square btn-sm btn-ghost'
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-square btn-sm btn-ghost"
         >
-          <IconComponent width='18' />
+          <IconComponent width="18" />
         </a>
       ))
     }
 
-    <button class='group btn btn-square btn-sm btn-ghost'>
+    <button class="group btn btn-square btn-sm btn-ghost">
       <MoonIcon
-        width='18'
-        styles='icon-dark rotate-0 transition-transform duration-300 group-hover:-rotate-[20deg]'
+        width="18"
+        styles="icon-dark rotate-0 transition-transform duration-300 group-hover:-rotate-[20deg]"
       />
       <SunIcon
-        width='18'
-        styles='icon-light rotate-0 transition-transform duration-300 group-hover:-rotate-[20deg]'
+        width="18"
+        styles="icon-light rotate-0 transition-transform duration-300 group-hover:-rotate-[20deg]"
       />
     </button>
   </section>
 </Container>
 
 <script is:inline>
-  const btn = document.querySelector('button')
-  const theme = localStorage.getItem('theme')
-  const html = document.querySelector('html')
+  const btn = document.querySelector("button");
+  const theme = localStorage.getItem("theme");
+  const html = document.querySelector("html");
 
-  const iconLight = document.querySelector('.icon-light')
-  const iconDark = document.querySelector('.icon-dark')
+  const iconLight = document.querySelector(".icon-light");
+  const iconDark = document.querySelector(".icon-dark");
 
   const systemTheme =
     window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  const colorMode = systemTheme ? 'dark' : 'light'
+  const colorMode = systemTheme ? "dark" : "light";
 
   function setLocalStorageTheme(theme) {
-    localStorage.setItem('theme', theme)
+    localStorage.setItem("theme", theme);
   }
 
   function setTheme(theme) {
-    html.dataset.theme = theme
+    html.dataset.theme = theme;
 
-    if (theme === 'dark') {
-      iconLight.classList.add('hidden')
-      iconDark.classList.remove('hidden')
+    if (theme === "dark") {
+      iconLight.classList.add("hidden");
+      iconDark.classList.remove("hidden");
     } else {
-      iconLight.classList.remove('hidden')
-      iconDark.classList.add('hidden')
+      iconLight.classList.remove("hidden");
+      iconDark.classList.add("hidden");
     }
   }
 
   if (systemTheme && !theme) {
-    setLocalStorageTheme(colorMode)
-    setTheme(colorMode)
+    setLocalStorageTheme(colorMode);
+    setTheme(colorMode);
   } else {
-    if (theme === 'dark') {
-      setTheme('dark')
+    if (theme === "dark") {
+      setTheme("dark");
     } else {
-      setTheme('light')
+      setTheme("light");
     }
   }
 
-  btn.addEventListener('click', e => {
-    const theme = localStorage.getItem('theme')
+  btn.addEventListener("click", (e) => {
+    const theme = localStorage.getItem("theme");
 
-    if (theme === 'dark') {
-      setLocalStorageTheme('light')
-      setTheme('light')
+    if (theme === "dark") {
+      setLocalStorageTheme("light");
+      setTheme("light");
     } else {
-      setLocalStorageTheme('dark')
-      setTheme('dark')
+      setLocalStorageTheme("dark");
+      setTheme("dark");
     }
-  })
+  });
 </script>

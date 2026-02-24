@@ -1,0 +1,17 @@
+---
+import { getCV } from "@services/getCV";
+import DownloadIcon from "@assets/icons/DownloadIcon.astro";
+
+const cv = await getCV();
+
+const { name, cv: cvUrl } = cv;
+---
+
+<a
+  href={cvUrl}
+  target="_blank"
+  class="btn btn-sm w-max bg-transparent border-none shadow-none hover:bg-success hover:text-base-100"
+>
+  <DownloadIcon width="18" />
+  {name}
+</a>

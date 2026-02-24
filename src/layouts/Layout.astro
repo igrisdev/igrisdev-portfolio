@@ -1,28 +1,28 @@
 ---
-import '@styles/global.css'
+import "@styles/global.css";
 
-import Container from '@components/general/Container.astro'
-import Header from '../components/general/Header.astro'
-import Footer from '@components/general/Footer.astro'
+import Container from "@components/general/Container.astro";
+import Header from "../components/general/Header.astro";
+import Footer from "@components/general/Footer.astro";
 
-const url = Astro.url.pathname
+const url = Astro.url.pathname;
 
-const isHome = url === '/'
+const isHome = url === "/";
 ---
 
 <!doctype html>
-<html lang='es'>
+<html lang="es">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/png' href='/icon.png' />
-    <meta name='generator' content={Astro.generator} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <meta name="generator" content={Astro.generator} />
     <title>Johan Alvarez - Portfolio</title>
   </head>
-  <body class='font-geist'>
+  <body class="font-geist">
     <Header />
 
-    <Container className=`grid pb-[32px] ${isHome ? 'gap-12' : 'gap-4'}`>
+    <Container className=`grid pb-8 ${isHome ? 'gap-12' : 'gap-4'}`>
       <slot />
     </Container>
 
