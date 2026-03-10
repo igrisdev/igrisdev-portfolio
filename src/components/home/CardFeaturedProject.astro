@@ -12,12 +12,14 @@ const {
   title,
   description,
   github,
-  url,
+  url: urlWeb,
   icon_technology,
   url_technology,
   tags,
   logo,
 } = Astro.props;
+
+const url = urlWeb.length > 0 ? urlWeb : github;
 ---
 
 <article

@@ -9,7 +9,7 @@ export function ProjectsForCardMapper(projects: any[]): FeaturedProjects[] {
           title: properties["Titulo"].title[0]?.plain_text || "",
           description: properties["Descripción"].rich_text[0]?.plain_text || "",
           github: properties["Link GitHub"].url || "",
-          url: properties["Link Pagina Framework"].url || "",
+          url: properties["Sitio Web"].url || "",
           icon_technology:
             properties["Icono Framework Principal"].files[0]?.file.url || "",
           url_technology: properties["Link Pagina Framework"].url || "",
