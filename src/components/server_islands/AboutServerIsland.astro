@@ -1,0 +1,8 @@
+---
+import AboutSkeleton from "@components/skeleton/AboutSkeleton.astro";
+import About from "@sections/home/About.astro";
+---
+
+<About server:defer>
+  <AboutSkeleton slot="fallback" />
+</About>

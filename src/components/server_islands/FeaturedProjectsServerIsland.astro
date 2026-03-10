@@ -1,0 +1,8 @@
+---
+import FeaturedProjectsSkeleton from "@components/skeleton/FeaturedProjectsSkeleton.astro";
+import FeaturedProjects from "@sections/home/FeaturedProjects.astro";
+---
+
+<FeaturedProjects server:defer>
+  <FeaturedProjectsSkeleton slot="fallback" />
+</FeaturedProjects>

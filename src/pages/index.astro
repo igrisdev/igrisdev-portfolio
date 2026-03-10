@@ -1,18 +1,18 @@
 ---
-import Layout from '@layouts/Layout.astro'
-import About from '@sections/home/About.astro'
-import Experience from '@sections/home/Experience.astro'
-import Articles from '@sections/home/Articles.astro'
-import Certificates from '@sections/home/Certificates.astro'
-import FeaturedProjects from '@sections/home/FeaturedProjects.astro'
-import Skills from '@sections/home/Skills.astro'
-import Studies from '@sections/home/Studies.astro'
+import Layout from "@layouts/Layout.astro";
+import AboutServerIsland from "@components/server_islands/AboutServerIsland.astro";
+import Experience from "@sections/home/Experience.astro";
+import Articles from "@sections/home/Articles.astro";
+import Certificates from "@sections/home/Certificates.astro";
+import Skills from "@sections/home/Skills.astro";
+import Studies from "@sections/home/Studies.astro";
+import FeaturedProjectsServerIsland from "@components/server_islands/FeaturedProjectsServerIsland.astro";
 ---
 
 <Layout>
-  <About />
+  <AboutServerIsland />
   <Experience />
-  <FeaturedProjects />
+  <FeaturedProjectsServerIsland />
   <Skills />
   <Studies />
   <Articles />

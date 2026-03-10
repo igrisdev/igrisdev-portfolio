@@ -1,0 +1,30 @@
+---
+import SectionLayout from "@components/general/SectionLayout.astro";
+import ButtonLink from "@components/general/ButtonLink.astro";
+
+const projects = Array(4).fill(null);
+---
+
+<SectionLayout
+  styles="animate-fade-up animate-once animate-ease-out animate-delay-300"
+>
+  <span slot="title">Proyectos Destacados</span>
+  <div slot="stuff">
+    <ButtonLink url="/products" text="Ver mas" />
+  </div>
+
+  <main>
+    <section class="grid md:grid-cols-2 gap-x-4 gap-y-5">
+      {
+        projects.map((project) => (
+          <div class="flex flex-col gap-4">
+            <div class="skeleton h-44 w-full" />
+            <div class="skeleton h-3 w-32" />
+            <div class="skeleton h-3 w-full" />
+            <div class="skeleton h-3 w-full" />
+          </div>
+        ))
+      }
+    </section>
+  </main>
+</SectionLayout>
